@@ -27,6 +27,8 @@
 		D8D32B8A22E9554800E3DBEE /* ShowsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D32B8922E9554800E3DBEE /* ShowsViewModel.swift */; };
 		D8D32B8C22E9557E00E3DBEE /* ShowsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D32B8B22E9557E00E3DBEE /* ShowsDataSource.swift */; };
 		D8D32B8E22E9582400E3DBEE /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D32B8D22E9582400E3DBEE /* CustomError.swift */; };
+		D8D32B9022E9DCE000E3DBEE /* ShowAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D32B8F22E9DCE000E3DBEE /* ShowAPI.swift */; };
+		D8D32B9322E9DDCC00E3DBEE /* ShowRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D32B9222E9DDCC00E3DBEE /* ShowRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +56,8 @@
 		D8D32B8922E9554800E3DBEE /* ShowsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowsViewModel.swift; sourceTree = "<group>"; };
 		D8D32B8B22E9557E00E3DBEE /* ShowsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowsDataSource.swift; sourceTree = "<group>"; };
 		D8D32B8D22E9582400E3DBEE /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
+		D8D32B8F22E9DCE000E3DBEE /* ShowAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowAPI.swift; sourceTree = "<group>"; };
+		D8D32B9222E9DDCC00E3DBEE /* ShowRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,9 +105,9 @@
 				D8D32B7C22E9145300E3DBEE /* API */,
 				D8CBA74522E90F3D00ED1940 /* Extensions */,
 				D8CBA74022E8FE7100ED1940 /* Models */,
-				D8CBA73422E8BC6300ED1940 /* Views */,
 				D8D32B8822E94F7D00E3DBEE /* ViewModel */,
 				D8CBA73722E8BC8300ED1940 /* Controllers */,
+				D8CBA73422E8BC6300ED1940 /* Storyboards */,
 				D8CBA73522E8BC7200ED1940 /* Resources */,
 				D8CBA72E22E8BB5D00ED1940 /* Info.plist */,
 				D8CBA72622E8BB5B00ED1940 /* TVMazeApp.xcdatamodeld */,
@@ -111,13 +115,13 @@
 			path = TVMazeApp;
 			sourceTree = "<group>";
 		};
-		D8CBA73422E8BC6300ED1940 /* Views */ = {
+		D8CBA73422E8BC6300ED1940 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
 				D8CBA72322E8BB5B00ED1940 /* Main.storyboard */,
 				D8CBA72B22E8BB5D00ED1940 /* LaunchScreen.storyboard */,
 			);
-			path = Views;
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 		D8CBA73522E8BC7200ED1940 /* Resources */ = {
@@ -171,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				D8D32B8122E9153D00E3DBEE /* APIClient */,
+				D8D32B9122E9DCE900E3DBEE /* Show */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -191,6 +196,15 @@
 				D8D32B8B22E9557E00E3DBEE /* ShowsDataSource.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		D8D32B9122E9DCE900E3DBEE /* Show */ = {
+			isa = PBXGroup;
+			children = (
+				D8D32B8F22E9DCE000E3DBEE /* ShowAPI.swift */,
+				D8D32B9222E9DDCC00E3DBEE /* ShowRouter.swift */,
+			);
+			path = Show;
 			sourceTree = "<group>";
 		};
 		E2C55E74834CB7B00F7958AB /* Pods */ = {
@@ -318,6 +332,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8CBA73D22E8C3FC00ED1940 /* PeopleViewController.swift in Sources */,
+				D8D32B9322E9DDCC00E3DBEE /* ShowRouter.swift in Sources */,
 				D8D32B8E22E9582400E3DBEE /* CustomError.swift in Sources */,
 				D8D32B8522E9153D00E3DBEE /* APIRouter.swift in Sources */,
 				D8CBA73922E8C3E300ED1940 /* ShowsViewController.swift in Sources */,
@@ -330,6 +345,7 @@
 				D8D32B8022E9150900E3DBEE /* Constants.swift in Sources */,
 				D8D32B8A22E9554800E3DBEE /* ShowsViewModel.swift in Sources */,
 				D8CBA74422E9087B00ED1940 /* User.swift in Sources */,
+				D8D32B9022E9DCE000E3DBEE /* ShowAPI.swift in Sources */,
 				D8CBA74222E8FE8500ED1940 /* Show.swift in Sources */,
 				D8CBA72022E8BB5B00ED1940 /* AppDelegate.swift in Sources */,
 				D8CBA73F22E8C40300ED1940 /* SettingsViewController.swift in Sources */,

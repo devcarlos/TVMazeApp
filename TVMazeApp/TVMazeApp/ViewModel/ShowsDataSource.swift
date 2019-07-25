@@ -11,7 +11,7 @@ import UIKit
 
 class GenericDataSource<T> : NSObject {
     //TODO: replace with RxSwift
-    var data: [T] //Bool//DynamicValue<[T]> = DynamicValue([])
+    var data: [T]
     
     override init() {
         data = []

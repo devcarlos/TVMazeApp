@@ -10,7 +10,10 @@ import UIKit
 
 class ShowsViewController: UIViewController {
 
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var collectionView : UICollectionView!
+
+    var searchActive : Bool = false
     
     private let itemsPerRow: CGFloat = 3
     
@@ -29,10 +32,16 @@ class ShowsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        self.title = "Series"
+        
+        //setup UI
+        setupUI()
+    }
+    
+    func setupUI() {
+        self.navigationItem.title = "Series"
         
         self.collectionView.dataSource = self.dataSource
+        self.collectionView.delegate = self
         
         // add error handling example
         self.viewModel.onErrorHandling = { [weak self] error in
@@ -42,6 +51,7 @@ class ShowsViewController: UIViewController {
             self?.present(controller, animated: true, completion: nil)
         }
         
+        //load shows by default
         self.viewModel.fetchShows(completion: {
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
@@ -73,5 +83,40 @@ extension ShowsViewController : UICollectionViewDelegateFlowLayout {
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return sectionInsets.left
+    }
+}
+
+extension ShowsViewController: UISearchResultsUpdating {
+    // MARK: - UISearchResultsUpdating Delegate
+    func updateSearchResults(for searchController: UISearchController) {
+        // TODO
+    }
+}
+
+extension ShowsViewController: UISearchBarDelegate {
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchActive = true
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchActive = false
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchActive = false
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchActive = false
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        print(searchText)
+        
+        self.viewModel.searchShowsBy(query: searchText) {
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        }
     }
 }

@@ -1,37 +1,37 @@
+//
+//  APIClient.swift
+//  TVMazeApp
+//
+//  Created by Carlos Alcala on 7/25/19.
+//  Copyright © 2019 Carlos Alcala. All rights reserved.
+//
 
 import Alamofire
 
 class APIClient {
     @discardableResult
-    private static func performRequest<T:Decodable>(route:APIRouter, decoder: JSONDecoder = JSONDecoder(), completion:@escaping (AFResult<T>)->Void) -> DataRequest {
+    class func performRequest<T:Decodable>(route:APIRouter, decoder: JSONDecoder = JSONDecoder(), completion:@escaping (AFResult<T>)->Void) -> DataRequest {
         return AF.request(route)
             .responseDecodable (decoder: decoder){ (response: DataResponse<T>) in
                 
                 print("----------RESULT---------")
                 print(response.result)
+                print("----------RESULT---------")
                 
                 completion(response.result)
         }
     }
     
-    private static func performRequestAuth<T:Decodable>(route:APIRouter, decoder: JSONDecoder = JSONDecoder(), completion:@escaping (AFResult<T>)->Void) -> DataRequest {
+    @discardableResult
+    class func performRequestAuth<T:Decodable>(route:APIRouter, decoder: JSONDecoder = JSONDecoder(), completion:@escaping (AFResult<T>)->Void) -> DataRequest {
         return AF.request(route).authenticate(username: Constants.APIParameterKey.email, password: Constants.APIParameterKey.password).responseDecodable (decoder: decoder) { (response: DataResponse<T>) in
             
             print("----------RESULT---------")
             print(response.result)
+            print("----------RESULT---------")
 
             completion(response.result)
         }
-    }
-    
-//    static func login(email: String, password: String, completion:@escaping (AFResult<User>)->Void) {
-//        performRequest(route: APIRouter.login(email: email, password: password), completion: completion)
-//    }
-    
-    static func getShows(completion:@escaping (AFResult<[Show]>)->Void) {
-        let jsonDecoder = JSONDecoder()
-        jsonDecoder.dateDecodingStrategy = .formatted(.showsDateFormatter)
-        _ = performRequestAuth(route: APIRouter.shows, decoder: jsonDecoder, completion: completion)
     }
 }
 

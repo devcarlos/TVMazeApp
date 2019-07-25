@@ -18,8 +18,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="7cr-wh-OtO">
+                                <rect key="frame" x="0.0" y="44" width="414" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="6m5-cg-bRY" id="qwP-jj-xBs"/>
+                                </connections>
+                            </searchBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="xoa-pf-jJN">
-                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <rect key="frame" x="0.0" y="100" width="414" height="713"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="4jV-a6-ehf">
                                     <size key="itemSize" width="50" height="50"/>
@@ -43,20 +50,24 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="mcE-jy-AbY" firstAttribute="trailing" secondItem="xoa-pf-jJN" secondAttribute="trailing" id="1B2-Lm-Ehd"/>
+                            <constraint firstItem="xoa-pf-jJN" firstAttribute="top" secondItem="7cr-wh-OtO" secondAttribute="bottom" id="2Pq-BN-4eh"/>
                             <constraint firstItem="xoa-pf-jJN" firstAttribute="leading" secondItem="mcE-jy-AbY" secondAttribute="leading" id="6vs-gR-4dg"/>
+                            <constraint firstItem="7cr-wh-OtO" firstAttribute="leading" secondItem="mcE-jy-AbY" secondAttribute="leading" id="7Yf-Ej-H0f"/>
+                            <constraint firstItem="7cr-wh-OtO" firstAttribute="top" secondItem="mcE-jy-AbY" secondAttribute="top" id="9y4-Iq-fGI"/>
+                            <constraint firstItem="7cr-wh-OtO" firstAttribute="trailing" secondItem="mcE-jy-AbY" secondAttribute="trailing" id="IL3-TW-NpZ"/>
                             <constraint firstItem="mcE-jy-AbY" firstAttribute="bottom" secondItem="xoa-pf-jJN" secondAttribute="bottom" id="fN1-Mj-Zrx"/>
-                            <constraint firstItem="xoa-pf-jJN" firstAttribute="top" secondItem="mcE-jy-AbY" secondAttribute="top" id="u7K-lG-ay1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="mcE-jy-AbY"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Series" image="tv" id="Te9-iF-QVR"/>
                     <connections>
                         <outlet property="collectionView" destination="xoa-pf-jJN" id="3mB-Hk-KTl"/>
+                        <outlet property="searchBar" destination="7cr-wh-OtO" id="KFt-vB-p9o"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oed-3d-kg1" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1703" y="-1691"/>
+            <point key="canvasLocation" x="-1704.3478260869567" y="-1691.5178571428571"/>
         </scene>
         <!--Favorites-->
         <scene sceneID="A0a-3G-wgV">
