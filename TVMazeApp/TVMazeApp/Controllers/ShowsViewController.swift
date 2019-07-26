@@ -110,6 +110,24 @@ extension ShowsViewController : UICollectionViewDelegateFlowLayout {
     }
 }
 
+// MARK: - UICollectionViewDelegateFlowLayout
+extension ShowsViewController : UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let show = dataSource.data[indexPath.row]
+        
+        print("------------SHOW DETAIL---------------")
+        print(show)
+        
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let controller = storyboard.instantiateViewController(withIdentifier: "ShowViewController")
+        
+        let vc = ShowDetailViewController.storyboardViewController()
+        vc.dataSource.show = show
+        self.present(vc, animated: true, completion: nil)
+    }
+}
+
 extension ShowsViewController: UISearchResultsUpdating {
     // MARK: - UISearchResultsUpdating Delegate
     func updateSearchResults(for searchController: UISearchController) {

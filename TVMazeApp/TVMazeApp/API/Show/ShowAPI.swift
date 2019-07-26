@@ -28,5 +28,11 @@ class ShowAPI: APIClient {
         jsonDecoder.dateDecodingStrategy = .formatted(.showsDateFormatter)
         APIClient.performRequestAuth(route: ShowRouter.search(query: query), decoder: jsonDecoder, completion: completion)
     }
+    
+    class func getEpisodes(showId: Int, completion:@escaping (AFResult<[Episode]>)->Void) {
+        let jsonDecoder = JSONDecoder()
+        jsonDecoder.dateDecodingStrategy = .formatted(.showsDateFormatter)
+        APIClient.performRequestAuth(route: ShowRouter.episodes(id: showId), decoder: jsonDecoder, completion: completion)
+    }
 }
 

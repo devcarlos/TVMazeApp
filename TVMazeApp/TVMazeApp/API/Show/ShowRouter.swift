@@ -14,11 +14,12 @@ import Alamofire
     case show(id: Int)
     case showsBy(page: Int)
     case search(query: String)
+    case episodes(id: Int)
     
     // MARK: - HTTPMethod
     var method: HTTPMethod {
         switch self {
-        case .shows, .show, .showsBy, .search:
+        case .shows, .show, .showsBy, .search, .episodes:
             return .get
         }
     }
@@ -30,19 +31,19 @@ import Alamofire
             return "/shows"
         case .showsBy:
             return "/shows"
-//        case .search(let query):
-//            return "/search/shows?q=\(query)"
         case .search:
             return "/search/shows"
         case .show(let id):
             return "/show/\(id)"
+        case .episodes(let id):
+            return "/shows/\(id)/episodes"
         }
     }
     
     // MARK: - Parameters
     var parameters: Parameters? {
         switch self {
-        case .shows, .show:
+        case .shows, .show, .episodes:
             return nil
         case .showsBy(let page):
             return ["page" : page]
@@ -51,26 +52,8 @@ import Alamofire
         }
     }
     
-    private func createURL(baseURL: String, parameters: Parameters?, path: String) -> URL {
-        
-        var components = URLComponents(string: baseURL)!
-        components.path = path
-        
-        if let parameters = parameters {
-            components.queryItems = [URLQueryItem]()
-            for (key, value) in parameters {
-                let queryItem = URLQueryItem(name: key, value: "\(value)")
-                components.queryItems!.append(queryItem)
-            }
-        }
-        
-        return components.url!
-    }
-    
     // MARK: - URLRequestConvertible
     func asURLRequest() throws -> URLRequest {
-//        let url = createURL(baseURL: Constants.Server.baseURL, parameters: parameters, path: path)
-        
         let url = try Constants.Server.baseURL.asURL().appendingPathComponent(path)
         
         print(url)

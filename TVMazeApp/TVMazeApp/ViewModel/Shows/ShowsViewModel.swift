@@ -25,8 +25,6 @@ struct ShowsViewModel {
         ShowAPI.getShows{ result in
             switch result {
             case .success(let shows):
-                print("_____________________________")
-                print(shows)
                 self.dataSource?.data = shows
                 completion()
             case .failure(let error):
@@ -41,8 +39,6 @@ struct ShowsViewModel {
         ShowAPI.getShowsBy(page: page) { result in
             switch result {
             case .success(let shows):
-                print("_____________________________")
-                print(shows)
                 self.dataSource?.data = shows
                 completion()
             case .failure(let error):
@@ -57,8 +53,6 @@ struct ShowsViewModel {
         ShowAPI.searchShowsBy(query: query) { result in
             switch result {
             case .success(let resultShows):
-                print("_____________________________")
-                print(resultShows)
                 //HACK: due to mixed JSON score/show in result we need to map show results only
                 //https://www.tvmaze.com/api#show-search
                 self.dataSource?.data = resultShows.map { $0.show }

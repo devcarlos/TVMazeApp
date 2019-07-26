@@ -33,6 +33,13 @@
 		D8D32B9822EA399700E3DBEE /* ShowCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8D32B9622EA399700E3DBEE /* ShowCell.xib */; };
 		D8D32B9A22EA4F2500E3DBEE /* HexColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D32B9922EA4F2500E3DBEE /* HexColor.swift */; };
 		D8D32B9C22EA562D00E3DBEE /* NSObject+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D32B9B22EA562D00E3DBEE /* NSObject+Utils.swift */; };
+		D8D32B9F22EAB9F600E3DBEE /* ShowDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D32B9E22EAB9F600E3DBEE /* ShowDetailViewModel.swift */; };
+		D8D32BA122EABA7900E3DBEE /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D32BA022EABA7900E3DBEE /* Episode.swift */; };
+		D8D32BA322EABBE000E3DBEE /* ShowDetailDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D32BA222EABBE000E3DBEE /* ShowDetailDataSource.swift */; };
+		D8D32BA522EAC06D00E3DBEE /* ShowDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D32BA422EAC06D00E3DBEE /* ShowDetailViewController.swift */; };
+		D8D32BA722EAC4F300E3DBEE /* Storyboard+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D32BA622EAC4F300E3DBEE /* Storyboard+Utils.swift */; };
+		D8D32BAA22EAD2E300E3DBEE /* EpisodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D32BA822EAD2E300E3DBEE /* EpisodeCell.swift */; };
+		D8D32BAB22EAD2E300E3DBEE /* EpisodeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8D32BA922EAD2E300E3DBEE /* EpisodeCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +73,13 @@
 		D8D32B9622EA399700E3DBEE /* ShowCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShowCell.xib; sourceTree = "<group>"; };
 		D8D32B9922EA4F2500E3DBEE /* HexColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexColor.swift; sourceTree = "<group>"; };
 		D8D32B9B22EA562D00E3DBEE /* NSObject+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Utils.swift"; sourceTree = "<group>"; };
+		D8D32B9E22EAB9F600E3DBEE /* ShowDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDetailViewModel.swift; sourceTree = "<group>"; };
+		D8D32BA022EABA7900E3DBEE /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
+		D8D32BA222EABBE000E3DBEE /* ShowDetailDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDetailDataSource.swift; sourceTree = "<group>"; };
+		D8D32BA422EAC06D00E3DBEE /* ShowDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDetailViewController.swift; sourceTree = "<group>"; };
+		D8D32BA622EAC4F300E3DBEE /* Storyboard+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Storyboard+Utils.swift"; sourceTree = "<group>"; };
+		D8D32BA822EAD2E300E3DBEE /* EpisodeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeCell.swift; sourceTree = "<group>"; };
+		D8D32BA922EAD2E300E3DBEE /* EpisodeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EpisodeCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +169,7 @@
 			children = (
 				D8D32B9422EA38A500E3DBEE /* Cells */,
 				D8CBA73822E8C3E300ED1940 /* ShowsViewController.swift */,
+				D8D32BA422EAC06D00E3DBEE /* ShowDetailViewController.swift */,
 				D8CBA73A22E8C3EE00ED1940 /* FavoritesViewController.swift */,
 				D8CBA73C22E8C3FC00ED1940 /* PeopleViewController.swift */,
 				D8CBA73E22E8C40300ED1940 /* SettingsViewController.swift */,
@@ -167,6 +182,7 @@
 			children = (
 				D8CBA74322E9087B00ED1940 /* User.swift */,
 				D8CBA74122E8FE8500ED1940 /* Show.swift */,
+				D8D32BA022EABA7900E3DBEE /* Episode.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -178,6 +194,7 @@
 				D8D32B8622E9368D00E3DBEE /* DateFormatter.swift */,
 				D8D32B9922EA4F2500E3DBEE /* HexColor.swift */,
 				D8D32B9B22EA562D00E3DBEE /* NSObject+Utils.swift */,
+				D8D32BA622EAC4F300E3DBEE /* Storyboard+Utils.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -203,8 +220,7 @@
 		D8D32B8822E94F7D00E3DBEE /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				D8D32B8922E9554800E3DBEE /* ShowsViewModel.swift */,
-				D8D32B8B22E9557E00E3DBEE /* ShowsDataSource.swift */,
+				D8D32B9D22EAB9D200E3DBEE /* Shows */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -223,8 +239,21 @@
 			children = (
 				D8D32B9522EA399700E3DBEE /* ShowCell.swift */,
 				D8D32B9622EA399700E3DBEE /* ShowCell.xib */,
+				D8D32BA822EAD2E300E3DBEE /* EpisodeCell.swift */,
+				D8D32BA922EAD2E300E3DBEE /* EpisodeCell.xib */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		D8D32B9D22EAB9D200E3DBEE /* Shows */ = {
+			isa = PBXGroup;
+			children = (
+				D8D32B8922E9554800E3DBEE /* ShowsViewModel.swift */,
+				D8D32B8B22E9557E00E3DBEE /* ShowsDataSource.swift */,
+				D8D32B9E22EAB9F600E3DBEE /* ShowDetailViewModel.swift */,
+				D8D32BA222EABBE000E3DBEE /* ShowDetailDataSource.swift */,
+			);
+			path = Shows;
 			sourceTree = "<group>";
 		};
 		E2C55E74834CB7B00F7958AB /* Pods */ = {
@@ -298,6 +327,7 @@
 			files = (
 				D8CBA72D22E8BB5D00ED1940 /* LaunchScreen.storyboard in Resources */,
 				D8CBA72A22E8BB5D00ED1940 /* Assets.xcassets in Resources */,
+				D8D32BAB22EAD2E300E3DBEE /* EpisodeCell.xib in Resources */,
 				D8D32B9822EA399700E3DBEE /* ShowCell.xib in Resources */,
 				D8CBA72522E8BB5B00ED1940 /* Main.storyboard in Resources */,
 			);
@@ -355,7 +385,9 @@
 				D8D32B9722EA399700E3DBEE /* ShowCell.swift in Sources */,
 				D8CBA73D22E8C3FC00ED1940 /* PeopleViewController.swift in Sources */,
 				D8D32B9322E9DDCC00E3DBEE /* ShowRouter.swift in Sources */,
+				D8D32BA522EAC06D00E3DBEE /* ShowDetailViewController.swift in Sources */,
 				D8D32B8E22E9582400E3DBEE /* CustomError.swift in Sources */,
+				D8D32BA322EABBE000E3DBEE /* ShowDetailDataSource.swift in Sources */,
 				D8D32B8522E9153D00E3DBEE /* APIRouter.swift in Sources */,
 				D8CBA73922E8C3E300ED1940 /* ShowsViewController.swift in Sources */,
 				D8CBA72822E8BB5B00ED1940 /* TVMazeApp.xcdatamodeld in Sources */,
@@ -366,10 +398,14 @@
 				D8D32B8422E9153D00E3DBEE /* APIClient.swift in Sources */,
 				D8D32B8022E9150900E3DBEE /* Constants.swift in Sources */,
 				D8D32B9C22EA562D00E3DBEE /* NSObject+Utils.swift in Sources */,
+				D8D32BA122EABA7900E3DBEE /* Episode.swift in Sources */,
+				D8D32BAA22EAD2E300E3DBEE /* EpisodeCell.swift in Sources */,
 				D8D32B8A22E9554800E3DBEE /* ShowsViewModel.swift in Sources */,
 				D8CBA74422E9087B00ED1940 /* User.swift in Sources */,
+				D8D32B9F22EAB9F600E3DBEE /* ShowDetailViewModel.swift in Sources */,
 				D8D32B9022E9DCE000E3DBEE /* ShowAPI.swift in Sources */,
 				D8CBA74222E8FE8500ED1940 /* Show.swift in Sources */,
+				D8D32BA722EAC4F300E3DBEE /* Storyboard+Utils.swift in Sources */,
 				D8D32B9A22EA4F2500E3DBEE /* HexColor.swift in Sources */,
 				D8CBA72022E8BB5B00ED1940 /* AppDelegate.swift in Sources */,
 				D8CBA73F22E8C40300ED1940 /* SettingsViewController.swift in Sources */,
