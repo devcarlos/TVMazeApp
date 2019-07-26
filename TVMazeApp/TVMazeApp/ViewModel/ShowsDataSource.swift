@@ -29,8 +29,13 @@ class ShowsDataSource : GenericDataSource<Show>, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView
-            .dequeueReusableCell(withReuseIdentifier: "ShowCell", for: indexPath)
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ShowCell.reuseID, for: indexPath) as! ShowCell
+        
+        let show = data[indexPath.row]
+        
+        cell.configure(with: show)
+        
         return cell
     }
 }

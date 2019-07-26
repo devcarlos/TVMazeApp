@@ -29,6 +29,10 @@
 		D8D32B8E22E9582400E3DBEE /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D32B8D22E9582400E3DBEE /* CustomError.swift */; };
 		D8D32B9022E9DCE000E3DBEE /* ShowAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D32B8F22E9DCE000E3DBEE /* ShowAPI.swift */; };
 		D8D32B9322E9DDCC00E3DBEE /* ShowRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D32B9222E9DDCC00E3DBEE /* ShowRouter.swift */; };
+		D8D32B9722EA399700E3DBEE /* ShowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D32B9522EA399700E3DBEE /* ShowCell.swift */; };
+		D8D32B9822EA399700E3DBEE /* ShowCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8D32B9622EA399700E3DBEE /* ShowCell.xib */; };
+		D8D32B9A22EA4F2500E3DBEE /* HexColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D32B9922EA4F2500E3DBEE /* HexColor.swift */; };
+		D8D32B9C22EA562D00E3DBEE /* NSObject+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D32B9B22EA562D00E3DBEE /* NSObject+Utils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +62,10 @@
 		D8D32B8D22E9582400E3DBEE /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
 		D8D32B8F22E9DCE000E3DBEE /* ShowAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowAPI.swift; sourceTree = "<group>"; };
 		D8D32B9222E9DDCC00E3DBEE /* ShowRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowRouter.swift; sourceTree = "<group>"; };
+		D8D32B9522EA399700E3DBEE /* ShowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowCell.swift; sourceTree = "<group>"; };
+		D8D32B9622EA399700E3DBEE /* ShowCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShowCell.xib; sourceTree = "<group>"; };
+		D8D32B9922EA4F2500E3DBEE /* HexColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexColor.swift; sourceTree = "<group>"; };
+		D8D32B9B22EA562D00E3DBEE /* NSObject+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Utils.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +153,7 @@
 		D8CBA73722E8BC8300ED1940 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				D8D32B9422EA38A500E3DBEE /* Cells */,
 				D8CBA73822E8C3E300ED1940 /* ShowsViewController.swift */,
 				D8CBA73A22E8C3EE00ED1940 /* FavoritesViewController.swift */,
 				D8CBA73C22E8C3FC00ED1940 /* PeopleViewController.swift */,
@@ -167,6 +176,8 @@
 			children = (
 				D8CBA74622E90F4700ED1940 /* Codextended.swift */,
 				D8D32B8622E9368D00E3DBEE /* DateFormatter.swift */,
+				D8D32B9922EA4F2500E3DBEE /* HexColor.swift */,
+				D8D32B9B22EA562D00E3DBEE /* NSObject+Utils.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -205,6 +216,15 @@
 				D8D32B9222E9DDCC00E3DBEE /* ShowRouter.swift */,
 			);
 			path = Show;
+			sourceTree = "<group>";
+		};
+		D8D32B9422EA38A500E3DBEE /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				D8D32B9522EA399700E3DBEE /* ShowCell.swift */,
+				D8D32B9622EA399700E3DBEE /* ShowCell.xib */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		E2C55E74834CB7B00F7958AB /* Pods */ = {
@@ -278,6 +298,7 @@
 			files = (
 				D8CBA72D22E8BB5D00ED1940 /* LaunchScreen.storyboard in Resources */,
 				D8CBA72A22E8BB5D00ED1940 /* Assets.xcassets in Resources */,
+				D8D32B9822EA399700E3DBEE /* ShowCell.xib in Resources */,
 				D8CBA72522E8BB5B00ED1940 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -331,6 +352,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8D32B9722EA399700E3DBEE /* ShowCell.swift in Sources */,
 				D8CBA73D22E8C3FC00ED1940 /* PeopleViewController.swift in Sources */,
 				D8D32B9322E9DDCC00E3DBEE /* ShowRouter.swift in Sources */,
 				D8D32B8E22E9582400E3DBEE /* CustomError.swift in Sources */,
@@ -343,10 +365,12 @@
 				D8D32B8C22E9557E00E3DBEE /* ShowsDataSource.swift in Sources */,
 				D8D32B8422E9153D00E3DBEE /* APIClient.swift in Sources */,
 				D8D32B8022E9150900E3DBEE /* Constants.swift in Sources */,
+				D8D32B9C22EA562D00E3DBEE /* NSObject+Utils.swift in Sources */,
 				D8D32B8A22E9554800E3DBEE /* ShowsViewModel.swift in Sources */,
 				D8CBA74422E9087B00ED1940 /* User.swift in Sources */,
 				D8D32B9022E9DCE000E3DBEE /* ShowAPI.swift in Sources */,
 				D8CBA74222E8FE8500ED1940 /* Show.swift in Sources */,
+				D8D32B9A22EA4F2500E3DBEE /* HexColor.swift in Sources */,
 				D8CBA72022E8BB5B00ED1940 /* AppDelegate.swift in Sources */,
 				D8CBA73F22E8C40300ED1940 /* SettingsViewController.swift in Sources */,
 			);

@@ -22,20 +22,7 @@ struct ShowsViewModel {
     
     func fetchShows(completion: @escaping FetchComplete) {
         // API fetch shows
-//        ShowAPI.getShows{ result in
-//            switch result {
-//            case .success(let shows):
-//                print("_____________________________")
-//                print(shows)
-//                self.dataSource?.data = shows
-//                completion()
-//            case .failure(let error):
-//                print(error.localizedDescription)
-//                self.onErrorHandling?(.network(string: "Unable to Fetch Shows"))
-//            }
-//        }
-        
-        ShowAPI.getShowsBy(page: 0) { result in
+        ShowAPI.getShows{ result in
             switch result {
             case .success(let shows):
                 print("_____________________________")
@@ -47,7 +34,6 @@ struct ShowsViewModel {
                 self.onErrorHandling?(.network(string: "Unable to Fetch Shows"))
             }
         }
-
     }
     
     func fetchShowsBy(page: Int, completion: @escaping FetchComplete) {

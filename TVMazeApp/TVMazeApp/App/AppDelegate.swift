@@ -16,7 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        //setup global UI
+        setupUI()
+        
         return true
     }
 
@@ -42,6 +45,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         // Saves changes in the application's managed object context before the application terminates.
         self.saveContext()
+    }
+    
+    //MARK: - UI Setup
+    
+    func setupUI() {
+        UITabBar.appearance().barTintColor = UIColor.darkGray
     }
 
     // MARK: - Core Data stack

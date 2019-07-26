@@ -15,13 +15,15 @@ class ShowsViewController: UIViewController {
 
     var searchActive : Bool = false
     
-    private let itemsPerRow: CGFloat = 3
+    private let itemsPerRow: CGFloat = 2
     
     private let sectionInsets = UIEdgeInsets(
-        top: 50.0,
+        top: 20.0,
         left: 20.0,
-        bottom: 50.0,
+        bottom: 20.0,
         right: 20.0)
+    
+    let activityIndicator = UIActivityIndicatorView(style: .whiteLarge)
     
     let dataSource = ShowsDataSource()
     
@@ -38,11 +40,27 @@ class ShowsViewController: UIViewController {
     }
     
     func setupUI() {
-        self.navigationItem.title = "Series"
+        setupCollectionView()
+        setupActivity()
+        setupViewModel()
         
+        //load shows by default
+        loadShows()
+    }
+    
+    func setupCollectionView() {
         self.collectionView.dataSource = self.dataSource
         self.collectionView.delegate = self
-        
+        self.collectionView.register(UINib.init(nibName: "ShowCell", bundle: nil), forCellWithReuseIdentifier: "ShowCell")
+    }
+    
+    func setupActivity() {
+        //activity indicator
+        self.view.addSubview(activityIndicator)
+        self.activityIndicator.frame = view.bounds
+    }
+    
+    func setupViewModel() {
         // add error handling example
         self.viewModel.onErrorHandling = { [weak self] error in
             // display error ?
@@ -50,10 +68,15 @@ class ShowsViewController: UIViewController {
             controller.addAction(UIAlertAction(title: "Close", style: .cancel, handler: nil))
             self?.present(controller, animated: true, completion: nil)
         }
+    }
+    
+    func loadShows() {
+        activityIndicator.startAnimating()
         
-        //load shows by default
+        //API fetch shows
         self.viewModel.fetchShows(completion: {
             DispatchQueue.main.async {
+                self.activityIndicator.stopAnimating()
                 self.collectionView.reloadData()
             }
         })
@@ -68,9 +91,10 @@ extension ShowsViewController : UICollectionViewDelegateFlowLayout {
         
         let paddingSpace = sectionInsets.left * (itemsPerRow + 1)
         let availableWidth = view.frame.width - paddingSpace
-        let widthPerItem = availableWidth / itemsPerRow
+        let width = availableWidth / itemsPerRow
+        let height = width + 165
         
-        return CGSize(width: widthPerItem, height: widthPerItem)
+        return CGSize(width: width, height: height)
     }
     
     func collectionView(_ collectionView: UICollectionView,
@@ -113,10 +137,18 @@ extension ShowsViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         print(searchText)
         
-        self.viewModel.searchShowsBy(query: searchText) {
-            DispatchQueue.main.async {
-                self.collectionView.reloadData()
+        activityIndicator.startAnimating()
+        
+        if !searchText.isEmpty {
+            //reload 1st page shows
+            self.viewModel.searchShowsBy(query: searchText) {
+                DispatchQueue.main.async {
+                    self.activityIndicator.stopAnimating()
+                    self.collectionView.reloadData()
+                }
             }
+        } else {
+            loadShows()
         }
     }
 }
