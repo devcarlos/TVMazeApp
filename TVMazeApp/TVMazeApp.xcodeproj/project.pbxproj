@@ -45,6 +45,7 @@
 		D8D32BB122EBC7B400E3DBEE /* EpisodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D32BB022EBC7B400E3DBEE /* EpisodeViewController.swift */; };
 		D8D32BB322EBC86800E3DBEE /* EpisodeDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D32BB222EBC86800E3DBEE /* EpisodeDataSource.swift */; };
 		D8D32BB522EBC8B100E3DBEE /* EpisodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D32BB422EBC8B100E3DBEE /* EpisodeViewModel.swift */; };
+		D8D32BB822EC1A2900E3DBEE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D32BB722EC1A2900E3DBEE /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -90,6 +91,7 @@
 		D8D32BB022EBC7B400E3DBEE /* EpisodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeViewController.swift; sourceTree = "<group>"; };
 		D8D32BB222EBC86800E3DBEE /* EpisodeDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDataSource.swift; sourceTree = "<group>"; };
 		D8D32BB422EBC8B100E3DBEE /* EpisodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeViewModel.swift; sourceTree = "<group>"; };
+		D8D32BB722EC1A2900E3DBEE /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +186,7 @@
 				D8CBA73A22E8C3EE00ED1940 /* FavoritesViewController.swift */,
 				D8CBA73C22E8C3FC00ED1940 /* PeopleViewController.swift */,
 				D8CBA73E22E8C40300ED1940 /* SettingsViewController.swift */,
+				D8D32BB722EC1A2900E3DBEE /* LoginViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -418,6 +421,7 @@
 				D8D32B9C22EA562D00E3DBEE /* NSObject+Utils.swift in Sources */,
 				D8D32BB322EBC86800E3DBEE /* EpisodeDataSource.swift in Sources */,
 				D8D32BA122EABA7900E3DBEE /* Episode.swift in Sources */,
+				D8D32BB822EC1A2900E3DBEE /* LoginViewController.swift in Sources */,
 				D8D32BAA22EAD2E300E3DBEE /* EpisodeCell.swift in Sources */,
 				D8D32B8A22E9554800E3DBEE /* ShowsViewModel.swift in Sources */,
 				D8CBA74422E9087B00ED1940 /* User.swift in Sources */,
