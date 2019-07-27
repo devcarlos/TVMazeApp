@@ -10,26 +10,30 @@ import Foundation
 import UIKit
 
 //TODO: handle with Collections
-class ShowDetailDataSource : GenericDataSource<Episode>, UITableViewDataSource {
+class ShowDetailDataSource : GenericDataSource<Season>, UITableViewDataSource {
     
     var show: Show?
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return data.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data.count
+        return data[section].episodes.count
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        let season = data[section]
+        return "Season \(season.season)"
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: EpisodeCell.reuseID, for: indexPath) as! EpisodeCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "EpisodeCell", for: indexPath)
 
-        //        let episode = data[indexPath.row]
-        //
-        //        cell.configure(with: episode)
-
+        let episode = data[indexPath.section].episodes[indexPath.row]
+        
+        cell.textLabel?.text = episode.name
         
         return cell
     }

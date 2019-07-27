@@ -83,6 +83,30 @@ struct Show: Codable {
     var summary: String?
     var updated: Int?
     var _links: ShowLinks?
+    
+    func scheduleFormatted() -> String {
+        guard let schedule = self.schedule else {
+            return ""
+        }
+        
+        return (schedule.days.map { "\($0) at \(schedule.time)" }).joined(separator: "\n")
+    }
+    
+    func genresFormatted() -> String {
+        guard let genres = self.genres else {
+            return ""
+        }
+        
+        return genres.joined(separator: " | ")
+    }
+    
+    func ratingFormatted() -> String {
+        guard let rating = self.rating?.average else {
+            return "-"
+        }
+        
+        return String(describing: rating)
+    }
 }
 
 struct ResultShow: Codable {

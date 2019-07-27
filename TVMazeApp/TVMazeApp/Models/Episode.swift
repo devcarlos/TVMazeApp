@@ -21,4 +21,25 @@ struct Episode: Codable {
     var image: ShowImage?
     var summary: String?
     var _links: ShowLinks?
+    
+    func numberFormatted() -> String {
+        guard let number = self.number else {
+            return ""
+        }
+        
+        return "Episode \(number)"
+    }
+    
+    func seasonFormatted() -> String {
+        guard let season = self.season else {
+            return ""
+        }
+        
+        return "Season \(season)"
+    }
+}
+
+struct Season: Codable {
+    var season: Int
+    var episodes: [Episode]
 }

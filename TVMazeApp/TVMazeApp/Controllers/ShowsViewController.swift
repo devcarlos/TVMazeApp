@@ -116,22 +116,9 @@ extension ShowsViewController : UICollectionViewDelegate {
         
         let show = dataSource.data[indexPath.row]
         
-        print("------------SHOW DETAIL---------------")
-        print(show)
-        
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        let controller = storyboard.instantiateViewController(withIdentifier: "ShowViewController")
-        
         let vc = ShowDetailViewController.storyboardViewController()
         vc.dataSource.show = show
-        self.present(vc, animated: true, completion: nil)
-    }
-}
-
-extension ShowsViewController: UISearchResultsUpdating {
-    // MARK: - UISearchResultsUpdating Delegate
-    func updateSearchResults(for searchController: UISearchController) {
-        // TODO
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 
@@ -153,7 +140,6 @@ extension ShowsViewController: UISearchBarDelegate {
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print(searchText)
         
         activityIndicator.startAnimating()
         

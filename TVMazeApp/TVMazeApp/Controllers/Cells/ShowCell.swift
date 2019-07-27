@@ -33,15 +33,13 @@ class ShowCell: UICollectionViewCell {
     
     public func configure(with show: Show) {
         
+        //load URL image
         if let image = show.image {
             showImage.sd_setImage(with: URL(string: image.medium), placeholderImage: UIImage(named: "placeholder"))
         }
         
+        //update labels
         titleLabel.text = show.name
-        var ratingString = "-"
-        if let rating = show.rating?.average {
-            ratingString = String(describing: rating)
-        }
-        ratingLabel.text = ratingString
+        ratingLabel.text = show.ratingFormatted()
     }
 }

@@ -11,9 +11,19 @@ import UIKit
 
 class ShowDetailViewController: UIViewController {
     
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var showImage: UIImageView!
+    @IBOutlet weak var favoriteImage: UIImageView!
+    @IBOutlet weak var ratingImage: UIImageView!
+    @IBOutlet weak var ratingLabel: UILabel!
+    @IBOutlet weak var scheduleLabel: UILabel!
+    @IBOutlet weak var genresLabel: UILabel!
+    @IBOutlet weak var summaryTextView: UITextView!
     @IBOutlet weak var tableView : UITableView!
     
     let activityIndicator = UIActivityIndicatorView(style: .whiteLarge)
+    
+    let summaryPadding:CGFloat = 10
     
     let dataSource = ShowDetailDataSource()
     
@@ -32,16 +42,20 @@ class ShowDetailViewController: UIViewController {
     func setupUI() {
         setupTableView()
         setupActivity()
+        setupLayour()
         setupViewModel()
         
-        //load shows by default
+        //update show
+        updateShowData()
+        
+        //load show episodes
         loadEpisodes()
     }
     
     func setupTableView() {
         self.tableView.dataSource = self.dataSource
         self.tableView.delegate = self
-        self.tableView.register(UINib.init(nibName: EpisodeCell.reuseID, bundle: nil), forCellReuseIdentifier: EpisodeCell.reuseID)
+//        self.tableView.register(UINib.init(nibName: EpisodeCell.reuseID, bundle: nil), forCellReuseIdentifier: EpisodeCell.reuseID)
     }
     
     func setupActivity() {
@@ -60,6 +74,39 @@ class ShowDetailViewController: UIViewController {
             controller.addAction(UIAlertAction(title: "Close", style: .cancel, handler: nil))
             self?.present(controller, animated: true, completion: nil)
         }
+    }
+    
+    func setupLayour() {
+        
+        favoriteImage.image = favoriteImage.image!.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
+        favoriteImage.tintColor = UIColor(hex: "#C1E5E6FF")
+        
+        //TODO: yellow for favorite
+        //        favoriteImage.tintColor = UIColor(hex: "#ffe700ff")
+        
+        ratingImage.image = ratingImage.image!.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
+        ratingImage.tintColor = UIColor(hex: "#C1E5E6FF")
+        
+        summaryTextView.contentInset = UIEdgeInsets(top: summaryPadding, left: summaryPadding, bottom: summaryPadding, right: summaryPadding)
+    }
+    
+    func updateShowData() {
+        
+        guard let show = dataSource.show else {
+            return
+        }
+        
+        //load URL show image
+        if let image = show.image {
+            showImage.sd_setImage(with: URL(string: image.medium), placeholderImage: UIImage(named: "placeholder"))
+        }
+        
+        //update show labels
+        titleLabel.text = show.name
+        ratingLabel.text = show.ratingFormatted()
+        scheduleLabel.text = show.scheduleFormatted()
+        genresLabel.text = show.genresFormatted()
+        summaryTextView.attributedText = show.summary?.HTMLToAttributedText
     }
     
     func loadEpisodes() {
@@ -83,5 +130,18 @@ class ShowDetailViewController: UIViewController {
 extension ShowDetailViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 40
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 40
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let episode = dataSource.data[indexPath.section].episodes[indexPath.row]
+        
+        let vc = EpisodeViewController.storyboardViewController()
+        vc.dataSource.data = episode
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }

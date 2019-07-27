@@ -56,8 +56,6 @@ import Alamofire
     func asURLRequest() throws -> URLRequest {
         let url = try Constants.Server.baseURL.asURL().appendingPathComponent(path)
         
-        print(url)
-        
         var urlRequest = URLRequest(url: url, cachePolicy: NSURLRequest.CachePolicy.reloadIgnoringLocalAndRemoteCacheData, timeoutInterval: 100)
         
         // HTTP Method

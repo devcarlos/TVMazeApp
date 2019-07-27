@@ -12,11 +12,11 @@ struct ShowDetailViewModel {
     
     typealias FetchComplete = ()->()
     
-    weak var dataSource : GenericDataSource<Episode>?
+    weak var dataSource : GenericDataSource<Season>?
     
     var onErrorHandling : ((ErrorResult?) -> Void)?
     
-    init(dataSource : GenericDataSource<Episode>?) {
+    init(dataSource : GenericDataSource<Season>?) {
         self.dataSource = dataSource
     }
     
@@ -25,9 +25,15 @@ struct ShowDetailViewModel {
         ShowAPI.getEpisodes(showId: showId) { result in
             switch result {
             case .success(let episodes):
-                print("_____________EPISODES________________")
-                print(episodes)
-                self.dataSource?.data = episodes
+                
+                let seasonsValues = Array(Set((episodes.map { $0.season! }))).sorted(by: {$0 < $1})
+                
+                var seasons: [Season] = []
+                for season in seasonsValues {
+                    seasons.append(Season(season: season, episodes: (episodes.filter { $0.season == season})))
+                }
+                
+                self.dataSource?.data = seasons
                 completion()
             case .failure(let error):
                 print(error.localizedDescription)

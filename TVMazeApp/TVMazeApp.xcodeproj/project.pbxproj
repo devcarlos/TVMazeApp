@@ -40,6 +40,11 @@
 		D8D32BA722EAC4F300E3DBEE /* Storyboard+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D32BA622EAC4F300E3DBEE /* Storyboard+Utils.swift */; };
 		D8D32BAA22EAD2E300E3DBEE /* EpisodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D32BA822EAD2E300E3DBEE /* EpisodeCell.swift */; };
 		D8D32BAB22EAD2E300E3DBEE /* EpisodeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8D32BA922EAD2E300E3DBEE /* EpisodeCell.xib */; };
+		D8D32BAD22EB593A00E3DBEE /* UIView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D32BAC22EB593A00E3DBEE /* UIView+Utils.swift */; };
+		D8D32BAF22EB601C00E3DBEE /* String+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D32BAE22EB601C00E3DBEE /* String+Utils.swift */; };
+		D8D32BB122EBC7B400E3DBEE /* EpisodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D32BB022EBC7B400E3DBEE /* EpisodeViewController.swift */; };
+		D8D32BB322EBC86800E3DBEE /* EpisodeDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D32BB222EBC86800E3DBEE /* EpisodeDataSource.swift */; };
+		D8D32BB522EBC8B100E3DBEE /* EpisodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D32BB422EBC8B100E3DBEE /* EpisodeViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +85,11 @@
 		D8D32BA622EAC4F300E3DBEE /* Storyboard+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Storyboard+Utils.swift"; sourceTree = "<group>"; };
 		D8D32BA822EAD2E300E3DBEE /* EpisodeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeCell.swift; sourceTree = "<group>"; };
 		D8D32BA922EAD2E300E3DBEE /* EpisodeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EpisodeCell.xib; sourceTree = "<group>"; };
+		D8D32BAC22EB593A00E3DBEE /* UIView+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Utils.swift"; sourceTree = "<group>"; };
+		D8D32BAE22EB601C00E3DBEE /* String+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Utils.swift"; sourceTree = "<group>"; };
+		D8D32BB022EBC7B400E3DBEE /* EpisodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeViewController.swift; sourceTree = "<group>"; };
+		D8D32BB222EBC86800E3DBEE /* EpisodeDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDataSource.swift; sourceTree = "<group>"; };
+		D8D32BB422EBC8B100E3DBEE /* EpisodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +180,7 @@
 				D8D32B9422EA38A500E3DBEE /* Cells */,
 				D8CBA73822E8C3E300ED1940 /* ShowsViewController.swift */,
 				D8D32BA422EAC06D00E3DBEE /* ShowDetailViewController.swift */,
+				D8D32BB022EBC7B400E3DBEE /* EpisodeViewController.swift */,
 				D8CBA73A22E8C3EE00ED1940 /* FavoritesViewController.swift */,
 				D8CBA73C22E8C3FC00ED1940 /* PeopleViewController.swift */,
 				D8CBA73E22E8C40300ED1940 /* SettingsViewController.swift */,
@@ -195,6 +206,8 @@
 				D8D32B9922EA4F2500E3DBEE /* HexColor.swift */,
 				D8D32B9B22EA562D00E3DBEE /* NSObject+Utils.swift */,
 				D8D32BA622EAC4F300E3DBEE /* Storyboard+Utils.swift */,
+				D8D32BAC22EB593A00E3DBEE /* UIView+Utils.swift */,
+				D8D32BAE22EB601C00E3DBEE /* String+Utils.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -252,6 +265,8 @@
 				D8D32B8B22E9557E00E3DBEE /* ShowsDataSource.swift */,
 				D8D32B9E22EAB9F600E3DBEE /* ShowDetailViewModel.swift */,
 				D8D32BA222EABBE000E3DBEE /* ShowDetailDataSource.swift */,
+				D8D32BB422EBC8B100E3DBEE /* EpisodeViewModel.swift */,
+				D8D32BB222EBC86800E3DBEE /* EpisodeDataSource.swift */,
 			);
 			path = Shows;
 			sourceTree = "<group>";
@@ -384,8 +399,11 @@
 			files = (
 				D8D32B9722EA399700E3DBEE /* ShowCell.swift in Sources */,
 				D8CBA73D22E8C3FC00ED1940 /* PeopleViewController.swift in Sources */,
+				D8D32BAD22EB593A00E3DBEE /* UIView+Utils.swift in Sources */,
 				D8D32B9322E9DDCC00E3DBEE /* ShowRouter.swift in Sources */,
+				D8D32BB122EBC7B400E3DBEE /* EpisodeViewController.swift in Sources */,
 				D8D32BA522EAC06D00E3DBEE /* ShowDetailViewController.swift in Sources */,
+				D8D32BB522EBC8B100E3DBEE /* EpisodeViewModel.swift in Sources */,
 				D8D32B8E22E9582400E3DBEE /* CustomError.swift in Sources */,
 				D8D32BA322EABBE000E3DBEE /* ShowDetailDataSource.swift in Sources */,
 				D8D32B8522E9153D00E3DBEE /* APIRouter.swift in Sources */,
@@ -398,6 +416,7 @@
 				D8D32B8422E9153D00E3DBEE /* APIClient.swift in Sources */,
 				D8D32B8022E9150900E3DBEE /* Constants.swift in Sources */,
 				D8D32B9C22EA562D00E3DBEE /* NSObject+Utils.swift in Sources */,
+				D8D32BB322EBC86800E3DBEE /* EpisodeDataSource.swift in Sources */,
 				D8D32BA122EABA7900E3DBEE /* Episode.swift in Sources */,
 				D8D32BAA22EAD2E300E3DBEE /* EpisodeCell.swift in Sources */,
 				D8D32B8A22E9554800E3DBEE /* ShowsViewModel.swift in Sources */,
@@ -405,6 +424,7 @@
 				D8D32B9F22EAB9F600E3DBEE /* ShowDetailViewModel.swift in Sources */,
 				D8D32B9022E9DCE000E3DBEE /* ShowAPI.swift in Sources */,
 				D8CBA74222E8FE8500ED1940 /* Show.swift in Sources */,
+				D8D32BAF22EB601C00E3DBEE /* String+Utils.swift in Sources */,
 				D8D32BA722EAC4F300E3DBEE /* Storyboard+Utils.swift in Sources */,
 				D8D32B9A22EA4F2500E3DBEE /* HexColor.swift in Sources */,
 				D8CBA72022E8BB5B00ED1940 /* AppDelegate.swift in Sources */,
