@@ -1,25 +1,15 @@
 //
-//  ShowsDataSource.swift
+//  PersonDataSource.swift
 //  TVMazeApp
 //
-//  Created by Carlos Alcala on 7/24/19.
+//  Created by Carlos Alcala on 7/27/19.
 //  Copyright © 2019 Carlos Alcala. All rights reserved.
 //
 
 import Foundation
 import UIKit
 
-class GenericDataSource<T> : NSObject {
-    //TODO: replace with RxSwift
-    var data: [T]
-    
-    override init() {
-        data = []
-    }
-}
-
-//TODO: handle with Collections
-class ShowsDataSource : GenericDataSource<Show>, UICollectionViewDataSource {
+class PersonListDataSource : GenericDataSource<Person>, UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -30,11 +20,11 @@ class ShowsDataSource : GenericDataSource<Show>, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ShowCell.reuseID, for: indexPath) as! ShowCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PersonCell.reuseID, for: indexPath) as! PersonCell
         
-        let show = data[indexPath.row]
+        let person = data[indexPath.row]
         
-        cell.configure(with: show)
+        cell.configure(with: person)
         
         return cell
     }

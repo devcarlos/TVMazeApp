@@ -1,5 +1,5 @@
 //
-//  ShowDetailViewModel.swift
+//  ShowViewModel.swift
 //  TVMazeApp
 //
 //  Created by Carlos Alcala on 7/26/19.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct ShowDetailViewModel {
+struct ShowViewModel {
     
     typealias FetchComplete = ()->()
     
@@ -38,6 +38,7 @@ struct ShowDetailViewModel {
             case .failure(let error):
                 print(error.localizedDescription)
                 self.onErrorHandling?(.network(string: "Unable to Fetch Show Episodes"))
+                completion()
             }
         }
     }

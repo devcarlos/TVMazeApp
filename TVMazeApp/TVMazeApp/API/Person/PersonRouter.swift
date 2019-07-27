@@ -1,25 +1,22 @@
 //
-//  ShowRouter.swift
+//  PersonRouter.swift
 //  TVMazeApp
 //
-//  Created by Carlos Alcala on 7/25/19.
+//  Created by Carlos Alcala on 7/27/19.
 //  Copyright © 2019 Carlos Alcala. All rights reserved.
 //
 
 import Alamofire
 
- enum ShowRouter: APIRouter {
-
-    case shows
-    case show(id: Int)
-    case showsBy(page: Int)
+enum PersonRouter: APIRouter {
+    
     case search(query: String)
-    case episodes(id: Int)
+    case shows(id: Int)
     
     // MARK: - HTTPMethod
     var method: HTTPMethod {
         switch self {
-        case .shows, .show, .showsBy, .search, .episodes:
+        case .shows, .search:
             return .get
         }
     }
@@ -27,26 +24,18 @@ import Alamofire
     // MARK: - Path
     var path: String {
         switch self {
-        case .shows:
-            return "/shows"
-        case .showsBy:
-            return "/shows"
         case .search:
-            return "/search/shows"
-        case .show(let id):
-            return "/show/\(id)"
-        case .episodes(let id):
-            return "/shows/\(id)/episodes"
+            return "/search/people"
+        case .shows(let id):
+            return "/people/\(id)/castcredits"
         }
     }
     
     // MARK: - Parameters
     var parameters: Parameters? {
         switch self {
-        case .shows, .show, .episodes:
-            return nil
-        case .showsBy(let page):
-            return ["page" : page]
+        case .shows:
+            return ["embed": "show"]
         case .search(let query):
             return ["q" : query]
         }
@@ -77,3 +66,4 @@ import Alamofire
         return urlRequest
     }
 }
+

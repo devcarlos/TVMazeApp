@@ -1,22 +1,26 @@
 PODS:
   - Alamofire (5.0.0-beta.6)
+  - SCLAlertView (0.8)
   - SDWebImage (5.0.6):
     - SDWebImage/Core (= 5.0.6)
   - SDWebImage/Core (5.0.6)
 
 DEPENDENCIES:
   - Alamofire (~> 5.0.0-beta.5)
+  - SCLAlertView
   - SDWebImage (~> 5.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - SCLAlertView
     - SDWebImage
 
 SPEC CHECKSUMS:
   Alamofire: cd08a4402bd12cacd0c66f23fb12fec8d6b965e4
+  SCLAlertView: 6a77bb2edfc65e04dbe57725546cb4107a506b85
   SDWebImage: 920f1a2ff1ca8296ad34f6e0510a1ef1d70ac965
 
-PODFILE CHECKSUM: 4c2529e8e66df1ec7a41f272a800759e67c7f364
+PODFILE CHECKSUM: ac33831e6ba6e178f6df882a7639cf051b95cfbe
 
 COCOAPODS: 1.7.4

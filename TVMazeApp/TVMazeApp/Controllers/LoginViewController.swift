@@ -57,16 +57,9 @@ class LoginViewController: UIViewController {
             if userPIN == pinLabel.text {
                 showHome()
             } else {
-                showError(message: "The PIN is wrong. Please try again")
+                showError(title: "Login Error", message: "The PIN is wrong. Please try again")
             }
         }
-    }
-    
-    func showError(message: String) {
-        // show error
-        let controller = UIAlertController(title: "Login Error", message: message, preferredStyle: .alert)
-        controller.addAction(UIAlertAction(title: "Close", style: .cancel, handler: nil))
-        self.present(controller, animated: true, completion: nil)
     }
 
     func setupSettings() {
@@ -108,7 +101,7 @@ class LoginViewController: UIViewController {
                     } else {
                         print(error?.localizedDescription ?? "Failed to authenticate")
                         
-                        self.showError(message: "Failed to authenticate")
+                        self.showError(title: "Login Error", message: "Failed to authenticate")
                         
                         // Fall back to a asking for username and password.
                         // ...
@@ -117,7 +110,7 @@ class LoginViewController: UIViewController {
             } else {
                 print(error?.localizedDescription ?? "Can't evaluate policy")
                 
-                self.showError(message: "Failed to authenticate")
+                self.showError(title: "Login Error", message: "Failed to authenticate")
                 // Fall back to a asking for username and password.
                 // ...
             }

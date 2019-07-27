@@ -14,13 +14,13 @@ struct Episode: Codable {
     var name: String
     var season: Int?
     var number: Int?
-    var airdate: Date?
+    var airdate: String?
     var airtime: String?
     var airstamp: String?
     var runtime: Int?
-    var image: ShowImage?
+    var image: MazeImage?
     var summary: String?
-    var _links: ShowLinks?
+    var _links: MazeLinks?
     
     func numberFormatted() -> String {
         guard let number = self.number else {

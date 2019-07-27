@@ -1,5 +1,5 @@
 //
-//  ShowDetailViewController.swift
+//  ShowViewController.swift
 //  TVMazeApp
 //
 //  Created by Carlos Alcala on 7/26/19.
@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class ShowDetailViewController: UIViewController {
+class ShowViewController: UIViewController {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var showImage: UIImageView!
@@ -25,10 +25,10 @@ class ShowDetailViewController: UIViewController {
     
     let summaryPadding:CGFloat = 10
     
-    let dataSource = ShowDetailDataSource()
+    let dataSource = ShowDataSource()
     
-    lazy var viewModel : ShowDetailViewModel = {
-        let viewModel = ShowDetailViewModel(dataSource: dataSource)
+    lazy var viewModel : ShowViewModel = {
+        let viewModel = ShowViewModel(dataSource: dataSource)
         return viewModel
     }()
     
@@ -127,7 +127,7 @@ class ShowDetailViewController: UIViewController {
 }
 
 // MARK: - UITableViewDelegate
-extension ShowDetailViewController : UITableViewDelegate {
+extension ShowViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 40
     }

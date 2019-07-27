@@ -17,7 +17,7 @@ struct Rating: Codable {
     var average: Float?
 }
 
-struct Country: Codable {
+struct MazeCountry: Codable {
     var name: String
     var code: String
     var timezone: String
@@ -26,7 +26,7 @@ struct Country: Codable {
 struct ShowNetwork: Codable {
     var id: Int
     var name: String
-    var country: Country
+    var country: MazeCountry
 }
 
 struct ShowExternal: Codable {
@@ -38,22 +38,22 @@ struct ShowExternal: Codable {
 struct WebChannel: Codable {
     var id: Int
     var name: String
-    var country: Country?
+    var country: MazeCountry?
 }
 
-struct ShowImage: Codable {
+struct MazeImage: Codable {
     var medium: String
     var original: String
 }
 
-struct ShowURL: Codable {
+struct MazeURL: Codable {
     var href: String
 }
 
-struct ShowLinks: Codable {
-    var url: ShowURL?
-    var previousepisode: ShowURL?
-    var nextepisode: ShowURL?
+struct MazeLinks: Codable {
+    var url: MazeURL?
+    var previousepisode: MazeURL?
+    var nextepisode: MazeURL?
     
     private enum CodingKeys : String, CodingKey {
         case url = "self"
@@ -79,10 +79,10 @@ struct Show: Codable {
     var network: ShowNetwork?
     var webChannel: WebChannel?
     var externals: ShowExternal?
-    var image: ShowImage?
+    var image: MazeImage?
     var summary: String?
     var updated: Int?
-    var _links: ShowLinks?
+    var _links: MazeLinks?
     
     func scheduleFormatted() -> String {
         guard let schedule = self.schedule else {

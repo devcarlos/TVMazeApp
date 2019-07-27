@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SCLAlertView
 
 extension UIView {
     @IBInspectable var cornerRadius: CGFloat {
@@ -48,5 +49,27 @@ extension UIViewController {
     
     @objc func dismissKeyboard() {
         view.endEditing(true)
+    }
+    
+    func showClasicAlert(title: String, message: String) {
+        // show error
+        let controller = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        controller.addAction(UIAlertAction(title: "Close", style: .cancel, handler: nil))
+        self.present(controller, animated: true, completion: nil)
+    }
+    
+    func showMessage(title: String, message: String) {
+        // show message
+        SCLAlertView().showNotice(title, subTitle: message) // Notice
+    }
+    
+    func showInfo(title: String, message: String) {
+        // show info message
+        SCLAlertView().showInfo(title, subTitle: message) // Info
+    }
+    
+    func showError(title: String, message: String) {
+        // show message
+        SCLAlertView().showError(title, subTitle: message) // Notice
     }
 }

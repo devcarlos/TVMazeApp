@@ -19,7 +19,7 @@ class APIClient {
     
     @discardableResult
     class func performRequestAuth<T:Decodable>(route:APIRouter, decoder: JSONDecoder = JSONDecoder(), completion:@escaping (AFResult<T>)->Void) -> DataRequest {
-        return AF.request(route).authenticate(username: Constants.APIParameterKey.email, password: Constants.APIParameterKey.password).responseDecodable (decoder: decoder) { (response: DataResponse<T>) in
+        return AF.request(route).authenticate(username: Constants.APIParameterKey.email, password: Constants.APIParameterKey.password).responseDecodable (decoder: decoder) { (response: DataResponse<T>) in            
             completion(response.result)
         }
     }

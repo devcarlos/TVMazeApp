@@ -30,6 +30,9 @@ class SettingsViewController: UIViewController {
     func saveSettings() {
         defaults.set(touchIDSwitch.isOn, forKey: "UseTouchID")
         defaults.set(pinLabel.text, forKey: "UsePIN")
+        defaults.synchronize()
+        
+        self.showMessage(title: "Settings", message: "Successfully Saved!")
     }
     
     func loadSettings() {

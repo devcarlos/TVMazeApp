@@ -1,5 +1,5 @@
 //
-//  ShowsViewController.swift
+//  PersonListViewController.swift
 //  TVMazeApp
 //
 //  Created by Carlos Alcala on 7/24/19.
@@ -8,11 +8,12 @@
 
 import UIKit
 
-class ShowsViewController: UIViewController {
-
+class PersonListViewController: UIViewController {
+    
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var hintLabel: UILabel!
     @IBOutlet weak var collectionView : UICollectionView!
-
+    
     var searchActive : Bool = false
     
     private let itemsPerRow: CGFloat = 2
@@ -25,10 +26,10 @@ class ShowsViewController: UIViewController {
     
     let activityIndicator = UIActivityIndicatorView(style: .whiteLarge)
     
-    let dataSource = ShowsDataSource()
+    let dataSource = PersonListDataSource()
     
-    lazy var viewModel : ShowsViewModel = {
-        let viewModel = ShowsViewModel(dataSource: dataSource)
+    lazy var viewModel : PersonListViewModel = {
+        let viewModel = PersonListViewModel(dataSource: dataSource)
         return viewModel
     }()
     
@@ -39,19 +40,37 @@ class ShowsViewController: UIViewController {
         setupUI()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        showInfo(title: "Person Finder", message: "Use the Search Bar to find People starring in shows")
+    }
+    
     func setupUI() {
         setupCollectionView()
         setupActivity()
         setupViewModel()
         
-        //load shows by default
-        loadShows()
+        hideKeyboardWhenTappedAround()
+        
+        //load Persons by default
+        loadPersons()
     }
     
     func setupCollectionView() {
         self.collectionView.dataSource = self.dataSource
         self.collectionView.delegate = self
-        self.collectionView.register(UINib.init(nibName: "ShowCell", bundle: nil), forCellWithReuseIdentifier: "ShowCell")
+        self.collectionView.register(UINib.init(nibName: PersonCell.reuseID, bundle: nil), forCellWithReuseIdentifier: PersonCell.reuseID)
     }
     
     func setupActivity() {
@@ -64,27 +83,25 @@ class ShowsViewController: UIViewController {
         // add error handling example
         self.viewModel.onErrorHandling = { [weak self] error in
             // display error ?
-            let controller = UIAlertController(title: "An error occured", message: "Oops, something went wrong!", preferredStyle: .alert)
-            controller.addAction(UIAlertAction(title: "Close", style: .cancel, handler: nil))
-            self?.present(controller, animated: true, completion: nil)
+            self?.showError(title: "An error occured", message: "Oops, something went wrong!")
         }
     }
     
-    func loadShows() {
-        activityIndicator.startAnimating()
+    func loadPersons() {
         
-        //API fetch shows
-        self.viewModel.fetchShows(completion: {
-            DispatchQueue.main.async {
-                self.activityIndicator.stopAnimating()
-                self.collectionView.reloadData()
-            }
-        })
+//        activityIndicator.startAnimating()
+//        //API fetch Persons
+//        self.viewModel.fetchPersons(completion: {
+//            DispatchQueue.main.async {
+//                self.activityIndicator.stopAnimating()
+//                self.collectionView.reloadData()
+//            }
+//        })
     }
 }
 
 // MARK: - UICollectionViewDelegateFlowLayout
-extension ShowsViewController : UICollectionViewDelegateFlowLayout {
+extension PersonListViewController : UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -92,7 +109,7 @@ extension ShowsViewController : UICollectionViewDelegateFlowLayout {
         let paddingSpace = sectionInsets.left * (itemsPerRow + 1)
         let availableWidth = view.frame.width - paddingSpace
         let width = availableWidth / itemsPerRow
-        let height = width + 165
+        let height = width + 125
         
         return CGSize(width: width, height: height)
     }
@@ -111,48 +128,48 @@ extension ShowsViewController : UICollectionViewDelegateFlowLayout {
 }
 
 // MARK: - UICollectionViewDelegateFlowLayout
-extension ShowsViewController : UICollectionViewDelegate {
+extension PersonListViewController : UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        let show = dataSource.data[indexPath.row]
-        
-        let vc = ShowDetailViewController.storyboardViewController()
-        vc.dataSource.show = show
+        let person = dataSource.data[indexPath.row]
+        let vc = PersonViewController.storyboardViewController()
+        vc.dataSource.person = person
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 
-extension ShowsViewController: UISearchBarDelegate {
+extension PersonListViewController: UISearchBarDelegate {
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchActive = true
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         searchActive = false
+        dismissKeyboard()
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchActive = false
+        dismissKeyboard()
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchActive = false
+        dismissKeyboard()
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
         activityIndicator.startAnimating()
         
-        if !searchText.isEmpty {
-            //reload 1st page shows
-            self.viewModel.searchShowsBy(query: searchText) {
-                DispatchQueue.main.async {
-                    self.activityIndicator.stopAnimating()
-                    self.collectionView.reloadData()
-                }
+        //search for person in query
+        self.viewModel.searchPersonsBy(query: searchText) {
+            DispatchQueue.main.async {
+                self.activityIndicator.stopAnimating()
+                self.collectionView.reloadData()
+                self.hintLabel.isHidden = self.dataSource.data.count > 0
             }
-        } else {
-            loadShows()
         }
     }
 }
+

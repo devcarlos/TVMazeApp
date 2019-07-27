@@ -1,5 +1,5 @@
 //
-//  ShowDetailDataSource.swift
+//  ShowDataSource.swift
 //  TVMazeApp
 //
 //  Created by Carlos Alcala on 7/26/19.
@@ -9,8 +9,7 @@
 import Foundation
 import UIKit
 
-//TODO: handle with Collections
-class ShowDetailDataSource : GenericDataSource<Season>, UITableViewDataSource {
+class ShowDataSource : GenericDataSource<Season>, UITableViewDataSource {
     
     var show: Show?
     
