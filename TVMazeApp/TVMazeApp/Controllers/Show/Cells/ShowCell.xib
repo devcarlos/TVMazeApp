@@ -55,6 +55,9 @@
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KvL-aP-XkL">
                                         <rect key="frame" x="0.0" y="0.0" width="75" height="35"/>
+                                        <connections>
+                                            <action selector="favoriteAction:" destination="gTV-IL-0wX" eventType="touchUpInside" id="MCO-24-vAx"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>

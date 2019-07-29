@@ -107,6 +107,17 @@ struct Show: Codable {
         
         return String(describing: rating)
     }
+    
+    func isFavorite(handler: @escaping (Bool) -> Void) {
+        FavoriteManager.shared.findFavorite(show: self) { result in
+            switch result {
+            case .success:
+                handler(true)
+            case .failure:
+                handler(false)
+            }
+        }
+    }
 }
 
 struct ResultShow: Codable {

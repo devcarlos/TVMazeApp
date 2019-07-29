@@ -65,22 +65,6 @@
             </objects>
             <point key="canvasLocation" x="-742" y="-1692"/>
         </scene>
-        <!--Favorites-->
-        <scene sceneID="A0a-3G-wgV">
-            <objects>
-                <viewController id="j97-gf-9nQ" customClass="FavoritesViewController" customModule="TVMazeApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="f7H-A3-uaD">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="9qJ-mH-jiM"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Favorites" image="favorite-black" id="dVx-K9-ne3"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Gp4-Ls-eVf" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1701" y="-962"/>
-        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="nKn-em-fhD">
             <objects>
@@ -100,9 +84,9 @@
                     </tabBar>
                     <connections>
                         <segue destination="lpw-cP-5nk" kind="relationship" relationship="viewControllers" id="KBG-mY-giY"/>
-                        <segue destination="j97-gf-9nQ" kind="relationship" relationship="viewControllers" id="ZZ9-b6-K9V"/>
-                        <segue destination="4Us-id-bwH" kind="relationship" relationship="viewControllers" id="9po-tM-fAt"/>
-                        <segue destination="aI4-be-wU0" kind="relationship" relationship="viewControllers" id="9V0-ia-s2o"/>
+                        <segue destination="GeD-K1-aDY" kind="relationship" relationship="viewControllers" id="MaU-Q8-kz9"/>
+                        <segue destination="4Us-id-bwH" kind="relationship" relationship="viewControllers" id="B01-R5-6ER"/>
+                        <segue destination="aI4-be-wU0" kind="relationship" relationship="viewControllers" id="PqV-b5-VZs"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aKC-8g-eic" sceneMemberID="firstResponder"/>
@@ -1204,13 +1188,83 @@ Sundays at 21:00 (60 min)</string>
             </objects>
             <point key="canvasLocation" x="180" y="-152"/>
         </scene>
+        <!--Favorites-->
+        <scene sceneID="xPf-ah-4aB">
+            <objects>
+                <viewController id="e8U-AS-IYs" userLabel="Favorites" customClass="FavoriteListViewController" customModule="TVMazeApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kie-60-XUy">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="vrw-FN-gCk">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="yT0-Vd-BRp">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Include Favorite Series from List by clicking on Favorite button ❤️" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bsj-nz-W1q" userLabel="Hint">
+                                <rect key="frame" x="69.5" y="423" width="275" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="275" id="tuE-Lb-o0R"/>
+                                    <constraint firstAttribute="height" constant="50" id="z9v-8k-kgW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="FVo-RZ-W9T" firstAttribute="bottom" secondItem="vrw-FN-gCk" secondAttribute="bottom" id="2ff-xP-U3c"/>
+                            <constraint firstItem="bsj-nz-W1q" firstAttribute="centerX" secondItem="FVo-RZ-W9T" secondAttribute="centerX" id="93g-Ml-cO2"/>
+                            <constraint firstItem="FVo-RZ-W9T" firstAttribute="trailing" secondItem="vrw-FN-gCk" secondAttribute="trailing" id="a76-9J-ivR"/>
+                            <constraint firstItem="bsj-nz-W1q" firstAttribute="centerY" secondItem="kie-60-XUy" secondAttribute="centerY" id="do7-Fw-kso"/>
+                            <constraint firstItem="vrw-FN-gCk" firstAttribute="top" secondItem="FVo-RZ-W9T" secondAttribute="top" id="i9q-f4-enZ"/>
+                            <constraint firstItem="vrw-FN-gCk" firstAttribute="leading" secondItem="FVo-RZ-W9T" secondAttribute="leading" id="zW7-sT-9h2"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="FVo-RZ-W9T"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="eCQ-AN-5oY"/>
+                    <connections>
+                        <outlet property="collectionView" destination="vrw-FN-gCk" id="uZI-H5-Z2R"/>
+                        <outlet property="hintLabel" destination="bsj-nz-W1q" id="unZ-Ub-hmG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1M2-lk-TRE" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-742.02898550724649" y="-939.50892857142856"/>
+        </scene>
+        <!--Show Navigation-->
+        <scene sceneID="U8Q-4O-Ahm">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GeD-K1-aDY" userLabel="Show Navigation" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Favorites" image="star" id="cB7-DJ-vym"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Agv-xa-Vk5">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="e8U-AS-IYs" kind="relationship" relationship="rootViewController" id="DvZ-QR-zOm"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dc0-Nc-Unb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1704" y="-939"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="favorite-black" width="24" height="24"/>
         <image name="love-black" width="24" height="24"/>
         <image name="people" width="24" height="24"/>
         <image name="settings" width="24" height="24"/>
         <image name="show1" width="210" height="295"/>
+        <image name="star" width="24" height="24"/>
         <image name="star-black" width="24" height="24"/>
         <image name="tv" width="24" height="24"/>
     </resources>

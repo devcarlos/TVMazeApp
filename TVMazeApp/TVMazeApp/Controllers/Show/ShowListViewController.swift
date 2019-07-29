@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PKHUD
 
 class ShowListViewController: UIViewController {
 
@@ -22,8 +23,6 @@ class ShowListViewController: UIViewController {
         left: 20.0,
         bottom: 20.0,
         right: 20.0)
-    
-    let activityIndicator = UIActivityIndicatorView(style: .whiteLarge)
     
     let dataSource = ShowListDataSource()
     
@@ -42,6 +41,8 @@ class ShowListViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
+        
+        updateCollection()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -49,9 +50,15 @@ class ShowListViewController: UIViewController {
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
+    func updateCollection() {
+        //update collection
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
+    }
+    
     func setupUI() {
-        setupCollectionView()
-        setupActivity()
+        setupDatasource()
         setupViewModel()
         
         hideKeyboardWhenTappedAround()
@@ -60,34 +67,28 @@ class ShowListViewController: UIViewController {
         loadShows()
     }
     
-    func setupCollectionView() {
-        self.collectionView.dataSource = self.dataSource
+    func setupDatasource() {
         self.collectionView.delegate = self
+        self.collectionView.dataSource = self.dataSource
         self.collectionView.register(UINib.init(nibName: "ShowCell", bundle: nil), forCellWithReuseIdentifier: "ShowCell")
-    }
-    
-    func setupActivity() {
-        //activity indicator
-        self.view.addSubview(activityIndicator)
-        self.activityIndicator.frame = view.bounds
     }
     
     func setupViewModel() {
         // add error handling example
         self.viewModel.onErrorHandling = { [weak self] error in
-            // display error ?
-            self?.showError(title: "An error occured", message: "Oops, something went wrong!")
+            // display error
+            self?.showError(title: "Error occured", message: error?.localizedDescription ?? "Something went wrong, please try again later.")
         }
     }
     
     func loadShows() {
-        activityIndicator.startAnimating()
+        HUD.show(.progress)
         
         //API fetch shows
         self.viewModel.fetchShows(completion: {
             DispatchQueue.main.async {
-                self.activityIndicator.stopAnimating()
-                self.collectionView.reloadData()
+                HUD.flash(.success, delay: 1.0)
+                self.updateCollection()
             }
         })
     }
@@ -154,18 +155,31 @@ extension ShowListViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
-        activityIndicator.startAnimating()
+        HUD.show(.progress)
         
         if !searchText.isEmpty {
             //reload 1st page shows
             self.viewModel.searchShowsBy(query: searchText) {
                 DispatchQueue.main.async {
-                    self.activityIndicator.stopAnimating()
+                    HUD.flash(.success, delay: 1.0)
                     self.collectionView.reloadData()
                 }
             }
         } else {
             loadShows()
         }
+    }
+}
+
+extension ShowListViewController: FavoriteShowDelegate {
+    func didSaveFavorite(show: Show?) {
+        //update collection
+        self.updateCollection()
+    }
+    
+    func handleFavoriteError(error: Error) {
+        //handle custom error
+        let message = "Error on Update Favorite: \(error.localizedDescription)"
+        self.showError(title: "Favorite Error", message: message)
     }
 }

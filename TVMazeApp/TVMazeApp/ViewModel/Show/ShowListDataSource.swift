@@ -19,6 +19,9 @@ class GenericDataSource<T> : NSObject {
 }
 
 class ShowListDataSource : GenericDataSource<Show>, UICollectionViewDataSource {
+    
+//    var onErrorHandling : ((ErrorResult?) -> Void)?
+    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -33,8 +36,21 @@ class ShowListDataSource : GenericDataSource<Show>, UICollectionViewDataSource {
         
         let show = data[indexPath.row]
         
+        cell.delegate = collectionView.delegate as? FavoriteShowDelegate
         cell.configure(with: show)
         
         return cell
     }
 }
+
+//extension ShowListDataSource: FavoriteShowDelegate {
+//    func didSaveFavorite(favorite: Bool) {
+//        //NOTE: Update CollectionView if necessary
+//    }
+//
+//    func handleFavoriteError(error: Error) {
+//        //handle custom error
+//        let message = "Error on Update Favorite: \(error.localizedDescription)"
+//        self.onErrorHandling?(.custom(string: message))
+//    }
+//}

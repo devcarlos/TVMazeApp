@@ -14,13 +14,17 @@
 		D839BE3322ECE07200535FD4 /* PersonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D839BE3222ECE07200535FD4 /* PersonViewModel.swift */; };
 		D839BE3522ECE07E00535FD4 /* PersonDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D839BE3422ECE07E00535FD4 /* PersonDataSource.swift */; };
 		D839BE3722ED09DA00535FD4 /* Date+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D839BE3622ED09DA00535FD4 /* Date+Utils.swift */; };
+		D839BE3922EEA9AD00535FD4 /* FavoriteShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D839BE3822EEA9AD00535FD4 /* FavoriteShow.swift */; };
+		D839BE3C22EEB64200535FD4 /* FavoriteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D839BE3B22EEB64200535FD4 /* FavoriteManager.swift */; };
+		D839BE3F22EF266500535FD4 /* FavoriteListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D839BE3E22EF266500535FD4 /* FavoriteListViewModel.swift */; };
+		D839BE4122EF276B00535FD4 /* FavoriteListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D839BE4022EF276B00535FD4 /* FavoriteListDataSource.swift */; };
 		D8CBA72022E8BB5B00ED1940 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CBA71F22E8BB5B00ED1940 /* AppDelegate.swift */; };
 		D8CBA72522E8BB5B00ED1940 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8CBA72322E8BB5B00ED1940 /* Main.storyboard */; };
 		D8CBA72822E8BB5B00ED1940 /* TVMazeApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D8CBA72622E8BB5B00ED1940 /* TVMazeApp.xcdatamodeld */; };
 		D8CBA72A22E8BB5D00ED1940 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8CBA72922E8BB5D00ED1940 /* Assets.xcassets */; };
 		D8CBA72D22E8BB5D00ED1940 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8CBA72B22E8BB5D00ED1940 /* LaunchScreen.storyboard */; };
 		D8CBA73922E8C3E300ED1940 /* ShowListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CBA73822E8C3E300ED1940 /* ShowListViewController.swift */; };
-		D8CBA73B22E8C3EE00ED1940 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CBA73A22E8C3EE00ED1940 /* FavoritesViewController.swift */; };
+		D8CBA73B22E8C3EE00ED1940 /* FavoriteListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CBA73A22E8C3EE00ED1940 /* FavoriteListViewController.swift */; };
 		D8CBA73D22E8C3FC00ED1940 /* PersonListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CBA73C22E8C3FC00ED1940 /* PersonListViewController.swift */; };
 		D8CBA73F22E8C40300ED1940 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CBA73E22E8C40300ED1940 /* SettingsViewController.swift */; };
 		D8CBA74222E8FE8500ED1940 /* Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CBA74122E8FE8500ED1940 /* Show.swift */; };
@@ -67,6 +71,10 @@
 		D839BE3222ECE07200535FD4 /* PersonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonViewModel.swift; sourceTree = "<group>"; };
 		D839BE3422ECE07E00535FD4 /* PersonDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDataSource.swift; sourceTree = "<group>"; };
 		D839BE3622ED09DA00535FD4 /* Date+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Utils.swift"; sourceTree = "<group>"; };
+		D839BE3822EEA9AD00535FD4 /* FavoriteShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteShow.swift; sourceTree = "<group>"; };
+		D839BE3B22EEB64200535FD4 /* FavoriteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteManager.swift; sourceTree = "<group>"; };
+		D839BE3E22EF266500535FD4 /* FavoriteListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListViewModel.swift; sourceTree = "<group>"; };
+		D839BE4022EF276B00535FD4 /* FavoriteListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListDataSource.swift; sourceTree = "<group>"; };
 		D8CBA71C22E8BB5B00ED1940 /* TVMazeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TVMazeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8CBA71F22E8BB5B00ED1940 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D8CBA72422E8BB5B00ED1940 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -75,7 +83,7 @@
 		D8CBA72C22E8BB5D00ED1940 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D8CBA72E22E8BB5D00ED1940 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D8CBA73822E8C3E300ED1940 /* ShowListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowListViewController.swift; sourceTree = "<group>"; };
-		D8CBA73A22E8C3EE00ED1940 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		D8CBA73A22E8C3EE00ED1940 /* FavoriteListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListViewController.swift; sourceTree = "<group>"; };
 		D8CBA73C22E8C3FC00ED1940 /* PersonListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonListViewController.swift; sourceTree = "<group>"; };
 		D8CBA73E22E8C40300ED1940 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		D8CBA74122E8FE8500ED1940 /* Show.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Show.swift; sourceTree = "<group>"; };
@@ -136,6 +144,23 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D839BE3A22EEB63200535FD4 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				D839BE3B22EEB64200535FD4 /* FavoriteManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		D839BE3D22EF244700535FD4 /* Favorite */ = {
+			isa = PBXGroup;
+			children = (
+				D839BE3E22EF266500535FD4 /* FavoriteListViewModel.swift */,
+				D839BE4022EF276B00535FD4 /* FavoriteListDataSource.swift */,
+			);
+			path = Favorite;
+			sourceTree = "<group>";
+		};
 		D8CBA71322E8BB5B00ED1940 = {
 			isa = PBXGroup;
 			children = (
@@ -166,6 +191,7 @@
 				D8CBA73422E8BC6300ED1940 /* Storyboards */,
 				D8CBA73522E8BC7200ED1940 /* Resources */,
 				D8CBA72E22E8BB5D00ED1940 /* Info.plist */,
+				D839BE3A22EEB63200535FD4 /* Managers */,
 				D8CBA72622E8BB5B00ED1940 /* TVMazeApp.xcdatamodeld */,
 			);
 			path = TVMazeApp;
@@ -215,6 +241,7 @@
 			children = (
 				D8CBA74322E9087B00ED1940 /* User.swift */,
 				D8CBA74122E8FE8500ED1940 /* Show.swift */,
+				D839BE3822EEA9AD00535FD4 /* FavoriteShow.swift */,
 				D8D32BA022EABA7900E3DBEE /* Episode.swift */,
 				D8D32BB922ECA54E00E3DBEE /* Person.swift */,
 			);
@@ -261,6 +288,7 @@
 				D8D32B9D22EAB9D200E3DBEE /* Show */,
 				D8D32BC022ECB47200E3DBEE /* Episode */,
 				D8D32BC122ECB48C00E3DBEE /* Person */,
+				D839BE3D22EF244700535FD4 /* Favorite */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -349,7 +377,7 @@
 		D8D32BC822ECBA1100E3DBEE /* Favorite */ = {
 			isa = PBXGroup;
 			children = (
-				D8CBA73A22E8C3EE00ED1940 /* FavoritesViewController.swift */,
+				D8CBA73A22E8C3EE00ED1940 /* FavoriteListViewController.swift */,
 			);
 			path = Favorite;
 			sourceTree = "<group>";
@@ -496,6 +524,7 @@
 				D8D32B9322E9DDCC00E3DBEE /* ShowRouter.swift in Sources */,
 				D8D32BB122EBC7B400E3DBEE /* EpisodeViewController.swift in Sources */,
 				D8D32BC522ECB4DB00E3DBEE /* PersonListDataSource.swift in Sources */,
+				D839BE4122EF276B00535FD4 /* FavoriteListDataSource.swift in Sources */,
 				D8D32BA522EAC06D00E3DBEE /* ShowViewController.swift in Sources */,
 				D8D32BB522EBC8B100E3DBEE /* EpisodeViewModel.swift in Sources */,
 				D8D32B8E22E9582400E3DBEE /* CustomError.swift in Sources */,
@@ -505,7 +534,7 @@
 				D8CBA73922E8C3E300ED1940 /* ShowListViewController.swift in Sources */,
 				D8CBA72822E8BB5B00ED1940 /* TVMazeApp.xcdatamodeld in Sources */,
 				D8D32B8722E9368D00E3DBEE /* DateFormatter.swift in Sources */,
-				D8CBA73B22E8C3EE00ED1940 /* FavoritesViewController.swift in Sources */,
+				D8CBA73B22E8C3EE00ED1940 /* FavoriteListViewController.swift in Sources */,
 				D8D32BBA22ECA54E00E3DBEE /* Person.swift in Sources */,
 				D8CBA74722E90F4700ED1940 /* Codextended.swift in Sources */,
 				D8D32B8C22E9557E00E3DBEE /* ShowListDataSource.swift in Sources */,
@@ -516,10 +545,13 @@
 				D8D32BB322EBC86800E3DBEE /* EpisodeDataSource.swift in Sources */,
 				D8D32BA122EABA7900E3DBEE /* Episode.swift in Sources */,
 				D8D32BB822EC1A2900E3DBEE /* LoginViewController.swift in Sources */,
+				D839BE3F22EF266500535FD4 /* FavoriteListViewModel.swift in Sources */,
 				D8D32BAA22EAD2E300E3DBEE /* EpisodeCell.swift in Sources */,
 				D839BE2E22ECBE6400535FD4 /* PersonCell.swift in Sources */,
 				D8D32B8A22E9554800E3DBEE /* ShowListViewModel.swift in Sources */,
 				D839BE3722ED09DA00535FD4 /* Date+Utils.swift in Sources */,
+				D839BE3C22EEB64200535FD4 /* FavoriteManager.swift in Sources */,
+				D839BE3922EEA9AD00535FD4 /* FavoriteShow.swift in Sources */,
 				D8CBA74422E9087B00ED1940 /* User.swift in Sources */,
 				D8D32B9F22EAB9F600E3DBEE /* ShowViewModel.swift in Sources */,
 				D839BE3522ECE07E00535FD4 /* PersonDataSource.swift in Sources */,

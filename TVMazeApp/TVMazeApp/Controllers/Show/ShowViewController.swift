@@ -67,12 +67,8 @@ class ShowViewController: UIViewController {
     func setupViewModel() {
         // add error handling example
         self.viewModel.onErrorHandling = { [weak self] error in
-            // show error message
-            let message = "Something went wrong. Error: \(String(describing: error?.localizedDescription))"
-            
-            let controller = UIAlertController(title: "An error occured", message: message, preferredStyle: .alert)
-            controller.addAction(UIAlertAction(title: "Close", style: .cancel, handler: nil))
-            self?.present(controller, animated: true, completion: nil)
+            // display error
+            self?.showError(title: "Error occured", message: error?.localizedDescription ?? "Something went wrong, please try again later.")
         }
     }
     
