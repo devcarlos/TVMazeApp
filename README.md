@@ -85,10 +85,11 @@ In order to quickly try the demo project **TVMazeApp** just run on Xcode using t
 
 ## Requirements
 
-- [x] Xcode 10.2.1
-- [x] Swift 5
-- [x] iOS 10.0+
-- [x] Storyboards
+NOTE: In order to implement the **TVMazeApp** project with Swift 5 and last Xcode, basic requirements has been upgraded.
+
+- [x] Xcode 10.2.1 (last Xcode version)
+- [x] Swift 5 (last Swift version)
+- [x] iOS 10.0 (better performance and functionality for Swift 5)
 
 ## Author
 
