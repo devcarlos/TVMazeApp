@@ -184,13 +184,10 @@ extension ShowListViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
-        HUD.show(.progress)
-        
         if !searchText.isEmpty {
             //reload 1st page shows
             self.viewModel.searchShowsBy(query: searchText) {
                 DispatchQueue.main.async {
-                    HUD.flash(.success, delay: 1.0)
                     self.collectionView.reloadData()
                 }
             }

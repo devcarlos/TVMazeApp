@@ -112,11 +112,11 @@ class FavoriteManager: NSObject {
                 let days = data.value(forKey: "days") as! [String]
                 let schedule = Schedule(time: time, days: days)
                 
-                let ratingValue = (data.value(forKey: "rating") as! NSNumber).floatValue
+                let ratingValue = (data.value(forKey: "rating") as? NSNumber)?.floatValue
                 let rating = Rating(average: ratingValue)
-                let imageURL = data.value(forKey: "image") as! String
+                let imageURL = data.value(forKey: "image") as? String ?? ""
                 let image = MazeImage(medium: imageURL, original: imageURL)
-                let summary = data.value(forKey: "summary") as! String
+                let summary = (data.value(forKey: "summary") as? String) ?? nil
                 
                 let show = Show(id: id, url: nil, name: name, type: nil, language: nil, genres: genres, status: nil, runtime: nil, premiered: nil, officialSite: nil, schedule: schedule, rating: rating, weight: nil, network: nil, webChannel: nil, externals: nil, image: image, summary: summary, updated: nil, _links: nil)
                 
