@@ -23,8 +23,6 @@ class LoginViewController: UIViewController {
     
     // authentication state.
     var state = AuthenticationState.loggedout {
-        
-        // Update the UI on a change.
         didSet {
             if state == .loggedin {
                showHome()
@@ -38,7 +36,7 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         
         setupSettings()
-        self.hideKeyboardWhenTappedAround()
+        hideKeyboardWhenTappedAround()
         
         context.canEvaluatePolicy(.deviceOwnerAuthentication, error: nil)
         
@@ -77,9 +75,7 @@ class LoginViewController: UIViewController {
     func checkAuthentication() {
         
         if state == .loggedin {
-            // Log out immediately.
             state = .loggedout
-            
         } else {
             context = LAContext()
             context.localizedCancelTitle = "Enter PIN"
@@ -92,27 +88,17 @@ class LoginViewController: UIViewController {
                 context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: reason ) { success, error in
                     
                     if success {
-                        
-                        // Move to the main thread because a state update triggers UI changes.
                         DispatchQueue.main.async { [unowned self] in
                             self.state = .loggedin
                         }
-                        
                     } else {
                         print(error?.localizedDescription ?? "Failed to authenticate")
-                        
                         self.showError(title: "Login Error", message: "Failed to authenticate")
-                        
-                        // Fall back to a asking for username and password.
-                        // ...
                     }
                 }
             } else {
                 print(error?.localizedDescription ?? "Can't evaluate policy")
-                
                 self.showError(title: "Login Error", message: "Failed to authenticate")
-                // Fall back to a asking for username and password.
-                // ...
             }
         }
     }

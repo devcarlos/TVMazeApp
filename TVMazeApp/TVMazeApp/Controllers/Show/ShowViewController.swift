@@ -35,7 +35,6 @@ class ShowViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //setup UI
         setupUI()
     }
     
@@ -55,18 +54,16 @@ class ShowViewController: UIViewController {
     func setupTableView() {
         self.tableView.dataSource = self.dataSource
         self.tableView.delegate = self
-//        self.tableView.register(UINib.init(nibName: EpisodeCell.reuseID, bundle: nil), forCellReuseIdentifier: EpisodeCell.reuseID)
     }
     
     func setupActivity() {
-        //activity indicator
-        self.view.addSubview(activityIndicator)
-        self.activityIndicator.frame = view.bounds
+        view.addSubview(activityIndicator)
+        activityIndicator.frame = view.bounds
     }
     
     func setupViewModel() {
         // add error handling example
-        self.viewModel.onErrorHandling = { [weak self] error in
+        viewModel.onErrorHandling = { [weak self] error in
             // display error
             self?.showError(title: "Error occured", message: error?.localizedDescription ?? "Something went wrong, please try again later.")
         }
@@ -76,9 +73,6 @@ class ShowViewController: UIViewController {
         
         favoriteImage.image = favoriteImage.image!.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
         favoriteImage.tintColor = UIColor(hex: "#C1E5E6FF")
-        
-        //TODO: yellow for favorite
-        //        favoriteImage.tintColor = UIColor(hex: "#ffe700ff")
         
         ratingImage.image = ratingImage.image!.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
         ratingImage.tintColor = UIColor(hex: "#C1E5E6FF")
@@ -113,7 +107,7 @@ class ShowViewController: UIViewController {
         }
         
         //API fetch episodes
-        self.viewModel.fetchEpisodes(showId: show.id) {
+        viewModel.fetchEpisodes(showId: show.id) {
             DispatchQueue.main.async {
                 self.activityIndicator.stopAnimating()
                 self.tableView.reloadData()
@@ -138,6 +132,6 @@ extension ShowViewController : UITableViewDelegate {
         
         let vc = EpisodeViewController.storyboardViewController()
         vc.dataSource.data = episode
-        self.navigationController?.pushViewController(vc, animated: true)
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

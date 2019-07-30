@@ -28,7 +28,6 @@ class PersonViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //setup UI
         setupUI()
     }
     
@@ -37,27 +36,24 @@ class PersonViewController: UIViewController {
         setupActivity()
         setupViewModel()
         
-        //update person
         updatePersonData()
         
-        //load person episodes
         loadShows()
     }
     
     func setupTableView() {
-        self.tableView.dataSource = self.dataSource
-        self.tableView.delegate = self
+        tableView.dataSource = self.dataSource
+        tableView.delegate = self
     }
     
     func setupActivity() {
         //activity indicator
-        self.view.addSubview(activityIndicator)
-        self.activityIndicator.frame = view.bounds
+        view.addSubview(activityIndicator)
+        activityIndicator.frame = view.bounds
     }
     
     func setupViewModel() {
-        // add error handling example
-        self.viewModel.onErrorHandling = { [weak self] error in
+        viewModel.onErrorHandling = { [weak self] error in
             // show error message
             let message = "Something went wrong. Error: \(String(describing: error?.localizedDescription))"
             self?.showError(title: "An error occured", message: message)
@@ -65,7 +61,6 @@ class PersonViewController: UIViewController {
     }
     
     func updatePersonData() {
-        
         guard let person = dataSource.person else {
             return
         }
@@ -110,7 +105,7 @@ extension PersonViewController : UITableViewDelegate {
         
         let vc = ShowViewController.storyboardViewController()
         vc.dataSource.show = show
-        self.navigationController?.pushViewController(vc, animated: true)
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 

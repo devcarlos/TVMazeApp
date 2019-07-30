@@ -36,7 +36,6 @@ class PersonListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //setup UI
         setupUI()
     }
     
@@ -62,41 +61,25 @@ class PersonListViewController: UIViewController {
         setupViewModel()
         
         hideKeyboardWhenTappedAround()
-        
-        //load Persons by default
-        loadPersons()
     }
     
     func setupCollectionView() {
-        self.collectionView.dataSource = self.dataSource
-        self.collectionView.delegate = self
-        self.collectionView.register(UINib.init(nibName: PersonCell.reuseID, bundle: nil), forCellWithReuseIdentifier: PersonCell.reuseID)
+        collectionView.dataSource = self.dataSource
+        collectionView.delegate = self
+        collectionView.register(UINib.init(nibName: PersonCell.reuseID, bundle: nil), forCellWithReuseIdentifier: PersonCell.reuseID)
     }
     
     func setupActivity() {
-        //activity indicator
-        self.view.addSubview(activityIndicator)
-        self.activityIndicator.frame = view.bounds
+        view.addSubview(activityIndicator)
+        activityIndicator.frame = view.bounds
     }
     
     func setupViewModel() {
         // add error handling example
-        self.viewModel.onErrorHandling = { [weak self] error in
+        viewModel.onErrorHandling = { [weak self] error in
             // display error ?
             self?.showError(title: "An error occured", message: "Oops, something went wrong!")
         }
-    }
-    
-    func loadPersons() {
-        
-//        activityIndicator.startAnimating()
-//        //API fetch Persons
-//        self.viewModel.fetchPersons(completion: {
-//            DispatchQueue.main.async {
-//                self.activityIndicator.stopAnimating()
-//                self.collectionView.reloadData()
-//            }
-//        })
     }
 }
 
@@ -127,17 +110,18 @@ extension PersonListViewController : UICollectionViewDelegateFlowLayout {
     }
 }
 
-// MARK: - UICollectionViewDelegateFlowLayout
+// MARK: - UICollectionViewDelegate
 extension PersonListViewController : UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let person = dataSource.data[indexPath.row]
         let vc = PersonViewController.storyboardViewController()
         vc.dataSource.person = person
-        self.navigationController?.pushViewController(vc, animated: true)
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
+// MARK: - UISearchBarDelegate
 extension PersonListViewController: UISearchBarDelegate {
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchActive = true
@@ -163,7 +147,7 @@ extension PersonListViewController: UISearchBarDelegate {
         activityIndicator.startAnimating()
         
         //search for person in query
-        self.viewModel.searchPersonsBy(query: searchText) {
+        viewModel.searchPersonsBy(query: searchText) {
             DispatchQueue.main.async {
                 self.activityIndicator.stopAnimating()
                 self.collectionView.reloadData()

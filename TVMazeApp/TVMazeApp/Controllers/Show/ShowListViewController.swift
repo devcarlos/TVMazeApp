@@ -70,14 +70,13 @@ class ShowListViewController: UIViewController {
     }
     
     func setupDatasource() {
-        self.collectionView.delegate = self
-        self.collectionView.dataSource = self.dataSource
-        self.collectionView.register(UINib.init(nibName: "ShowCell", bundle: nil), forCellWithReuseIdentifier: "ShowCell")
+        collectionView.delegate = self
+        collectionView.dataSource = self.dataSource
+        collectionView.register(UINib.init(nibName: "ShowCell", bundle: nil), forCellWithReuseIdentifier: "ShowCell")
     }
     
     func setupViewModel() {
-        // add error handling example
-        self.viewModel.onErrorHandling = { [weak self] error in
+        viewModel.onErrorHandling = { [weak self] error in
             // display error
             self?.showError(title: "Error occured", message: error?.localizedDescription ?? "Something went wrong, please try again later.")
         }
@@ -87,7 +86,7 @@ class ShowListViewController: UIViewController {
         HUD.show(.progress)
         
         //API fetch shows
-        self.viewModel.fetchShows(completion: {
+        viewModel.fetchShows(completion: {
             DispatchQueue.main.async {
                 HUD.flash(.success, delay: 1.0)
                 self.updateCollection()
@@ -96,16 +95,15 @@ class ShowListViewController: UIViewController {
     }
     
     func loadNextPageShows() {
-        
-        if self.paginationActive {
+        if paginationActive {
             return
         }
         
-        self.paginationActive = true
+        paginationActive = true
         HUD.show(.progress)
         
         //API fetch shows
-        self.viewModel.nextPageShows(completion: {
+        viewModel.nextPageShows(completion: {
             self.showMessage(title: "Loading Pagination", message: "Loading Shows from page \(self.viewModel.pagination.currentPage)")
             self.paginationActive = false
             DispatchQueue.main.async {
@@ -163,6 +161,7 @@ extension ShowListViewController : UICollectionViewDelegate {
     }
 }
 
+// MARK: - UISearchBarDelegate
 extension ShowListViewController: UISearchBarDelegate {
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchActive = true
@@ -201,15 +200,16 @@ extension ShowListViewController: UISearchBarDelegate {
     }
 }
 
+// MARK: - FavoriteShowDelegate
 extension ShowListViewController: FavoriteShowDelegate {
     func didSaveFavorite(show: Show?) {
         //update collection
-        self.updateCollection()
+        updateCollection()
     }
     
     func handleFavoriteError(error: Error) {
         //handle custom error
         let message = "Error on Update Favorite: \(error.localizedDescription)"
-        self.showError(title: "Favorite Error", message: message)
+        showError(title: "Favorite Error", message: message)
     }
 }

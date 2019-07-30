@@ -80,7 +80,6 @@ class ShowCell: UICollectionViewCell {
                             self.delegate?.didSaveFavorite(show: self.show)
                             self.toggle(with: false)
                         case .failure (let error):
-                            print("Error on Delete Favorite")
                             self.delegate?.handleFavoriteError(error: error)
                         }
                 }
@@ -91,7 +90,6 @@ class ShowCell: UICollectionViewCell {
                         self.delegate?.didSaveFavorite(show: nil)
                         self.toggle(with: true)
                     case .failure (let error):
-                        print("Error on Save Favorite")
                         self.delegate?.handleFavoriteError(error: error)
                     }
                 }

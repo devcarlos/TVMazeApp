@@ -117,7 +117,6 @@ class FavoriteManager: NSObject {
                 let imageURL = data.value(forKey: "image") as! String
                 let image = MazeImage(medium: imageURL, original: imageURL)
                 let summary = data.value(forKey: "summary") as! String
-                print(name)
                 
                 let show = Show(id: id, url: nil, name: name, type: nil, language: nil, genres: genres, status: nil, runtime: nil, premiered: nil, officialSite: nil, schedule: schedule, rating: rating, weight: nil, network: nil, webChannel: nil, externals: nil, image: image, summary: summary, updated: nil, _links: nil)
                 

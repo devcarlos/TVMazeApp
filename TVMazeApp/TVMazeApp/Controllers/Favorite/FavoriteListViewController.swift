@@ -69,8 +69,7 @@ class FavoriteListViewController: UIViewController {
     }
     
     func setupViewModel() {
-        // add error handling example
-        self.viewModel.onErrorHandling = { [weak self] error in
+        viewModel.onErrorHandling = { [weak self] error in
             // display error
             self?.showError(title: "Error occured", message: error?.localizedDescription ?? "Something went wrong, please try again later.")
         }
@@ -80,7 +79,7 @@ class FavoriteListViewController: UIViewController {
         HUD.show(.progress)
         
         //API fetch shows
-        self.viewModel.fetchShows(completion: {
+        viewModel.fetchShows(completion: {
             DispatchQueue.main.async {
                 HUD.flash(.success, delay: 0.5)
                 self.collectionView.reloadData()
@@ -117,7 +116,7 @@ extension FavoriteListViewController : UICollectionViewDelegateFlowLayout {
     }
 }
 
-// MARK: - UICollectionViewDelegateFlowLayout
+// MARK: - UICollectionViewDelegate
 extension FavoriteListViewController : UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
@@ -125,10 +124,11 @@ extension FavoriteListViewController : UICollectionViewDelegate {
         
         let vc = ShowViewController.storyboardViewController()
         vc.dataSource.show = show
-        self.navigationController?.pushViewController(vc, animated: true)
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
+// MARK: - FavoriteShowDelegate
 extension FavoriteListViewController: FavoriteShowDelegate {
     func didSaveFavorite(show: Show?) {
         
@@ -138,7 +138,7 @@ extension FavoriteListViewController: FavoriteShowDelegate {
         }
         
         //remove show from collection datasource
-        self.dataSource.data.removeAll { $0.id == show.id }
+        dataSource.data.removeAll { $0.id == show.id }
         
         loadShows()
     }
@@ -146,6 +146,6 @@ extension FavoriteListViewController: FavoriteShowDelegate {
     func handleFavoriteError(error: Error) {
         //handle custom error
         let message = "Error on Update Favorite: \(error.localizedDescription)"
-        self.showError(title: "Favorite Error", message: message)
+        showError(title: "Favorite Error", message: message)
     }
 }

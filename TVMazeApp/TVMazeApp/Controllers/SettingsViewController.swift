@@ -19,8 +19,8 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.loadSettings()
-        self.hideKeyboardWhenTappedAround()
+        loadSettings()
+        hideKeyboardWhenTappedAround()
     }
     
     @IBAction func saveAction(_ sender: UIButton) {
@@ -32,7 +32,7 @@ class SettingsViewController: UIViewController {
         defaults.set(pinLabel.text, forKey: "UsePIN")
         defaults.synchronize()
         
-        self.showMessage(title: "Settings", message: "Successfully Saved!")
+        showMessage(title: "Settings", message: "Successfully Saved!")
     }
     
     func loadSettings() {
