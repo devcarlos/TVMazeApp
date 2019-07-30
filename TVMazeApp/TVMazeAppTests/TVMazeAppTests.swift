@@ -207,12 +207,11 @@ class TVMazeAppTests: XCTestCase {
                 
                 promise.fulfill()
             case .failure(let error):
-                XCTFail("Error on Fetch Person: \(error.localizedDescription)")
+                XCTFail("Error on Search Person: \(error.localizedDescription)")
             }
         }
         
         // wait for promise
         wait(for: [promise], timeout: 10)
     }
-    
 }

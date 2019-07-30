@@ -8,11 +8,21 @@
 
 import Foundation
 
+class Pagination {
+    var currentPage:Int
+    
+    init() {
+        currentPage = 0
+    }
+}
+
 struct ShowListViewModel {
     
     typealias FetchComplete = ()->()
     
     weak var dataSource : GenericDataSource<Show>?
+    
+    var pagination:Pagination = Pagination()
     
     var onErrorHandling : ((ErrorResult?) -> Void)?
     
@@ -45,6 +55,25 @@ struct ShowListViewModel {
             case .failure(let error):
                 print(error.localizedDescription)
                 self.onErrorHandling?(.network(string: "Unable to Fetch Shows"))
+                completion()
+            }
+        }
+    }
+    
+    func nextPageShows(completion: @escaping FetchComplete) {
+        
+        pagination.currentPage += 1
+        
+        // API fetch shows
+        ShowAPI.getShowsBy(page: pagination.currentPage) { result in
+            switch result {
+            case .success(let shows):
+                //append pagination shows to current data
+                self.dataSource?.data += shows
+                completion()
+            case .failure(let error):
+                print(error.localizedDescription)
+                self.onErrorHandling?(.network(string: "Unable to fetch more shows with pagination"))
                 completion()
             }
         }

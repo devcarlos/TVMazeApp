@@ -16,6 +16,8 @@ class ShowListViewController: UIViewController {
 
     var searchActive : Bool = false
     
+    var paginationActive : Bool = false
+    
     private let itemsPerRow: CGFloat = 2
     
     private let sectionInsets = UIEdgeInsets(
@@ -92,6 +94,26 @@ class ShowListViewController: UIViewController {
             }
         })
     }
+    
+    func loadNextPageShows() {
+        
+        if self.paginationActive {
+            return
+        }
+        
+        self.paginationActive = true
+        HUD.show(.progress)
+        
+        //API fetch shows
+        self.viewModel.nextPageShows(completion: {
+            self.showMessage(title: "Loading Pagination", message: "Loading Shows from page \(self.viewModel.pagination.currentPage)")
+            self.paginationActive = false
+            DispatchQueue.main.async {
+                HUD.flash(.success, delay: 1.0)
+                self.updateCollection()
+            }
+        })
+    }
 }
 
 // MARK: - UICollectionViewDelegateFlowLayout
@@ -130,6 +152,14 @@ extension ShowListViewController : UICollectionViewDelegate {
         let vc = ShowViewController.storyboardViewController()
         vc.dataSource.show = show
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        if offsetY > contentHeight - scrollView.frame.size.height {
+            loadNextPageShows()
+        }
     }
 }
 

@@ -20,7 +20,9 @@ TVMazeApp Listing Series App
   * [Favorites](#favorites)
   * [People](#people)
   * [Settings](#settings)
+* [CocoaPods](#cocoapods)
 * [Installation](#installation)
+* [Requirements](#requirements)
 * [Author](#author)
 * [License](#license)
 
@@ -81,10 +83,17 @@ git clone https://github.com/devcarlos/TVMazeApp.git
 
 In order to quickly try the demo project **TVMazeApp** just run on Xcode using the simulator or device.
 
+## Requirements
+
+- [x] Xcode 10.2.1
+- [x] Swift 5
+- [x] iOS 10.0+
+- [x] Storyboards
+
 ## Author
 
 Carlos Alcala, carlos.alcala@me.com
 
 ## License
 
-**TVMazeApp** is available under the MIT license. See the [LICENSE](https://github.com/hyperoslo/TVMazeApp/blob/master/LICENSE.md) file for more info.
+**TVMazeApp** is available under the MIT license. See the [LICENSE](https://github.com/devcarlos/TVMazeApp/blob/master/LICENSE) file for more info.

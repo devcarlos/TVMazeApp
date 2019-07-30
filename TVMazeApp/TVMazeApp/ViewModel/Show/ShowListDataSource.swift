@@ -20,8 +20,6 @@ class GenericDataSource<T> : NSObject {
 
 class ShowListDataSource : GenericDataSource<Show>, UICollectionViewDataSource {
     
-//    var onErrorHandling : ((ErrorResult?) -> Void)?
-    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
