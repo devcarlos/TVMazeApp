@@ -1,15 +1,14 @@
 # TVMazeApp
-TVMazeApp Jobsity Challenge App
+TVMazeApp Listing Series App
 
 ## Description
 
-**TVMazeApp** is a challenge project App to handle the TVMaze API for Jobsity.
+**TVMazeApp** is a project App to handle the TVMaze API to display and search for TV Series, Favorites and People Based on TVMaze API functionality.
 
 - [x] Listing and Search Series
-- [x] Register Favorite Series
-- [x] Listing Favorite Series
+- [x] Listing Favorite Series with CoreData
 - [x] Listing and Search People
-- [x] Touch ID available
+- [x] Configure Settings for Authentication with PIN and Biometrics (Touch/Face ID)
 - [x] [Demo project](https://github.com/devcarlos/TVMazeApp).
 
 ## Table of Contents
@@ -29,19 +28,57 @@ TVMazeApp Jobsity Challenge App
 
 ### Series Listing
 
-Describe the Listing functionality
+Search and Listing All series based on show listing API
 
 ### Favorites
 
-Describe the Favorites functionality
+Listing favorite series liked on Series Listing sort alphabetically
 
 ### People
 
-Describe the Favorites functionality
+Search and Listing people starring cast from shows
 
 ### Settings
 
-Describe the Settings functionality
+Setup User Settings for Authentication (PIN/Biometrics)
+
+## Cocoapods
+
+In order to implement the **TVMazeApp** project there is some libraries used for convenience:
+
+### Alamofire
+
+- [x] [Alamofire](https://github.com/Alamofire/Alamofire)
+- [x] Version **5.0.0-beta.5**
+- [x] Used to handle Networking in Swift 5
+
+### SDWebImage
+
+- [x] [SDWebImage](https://github.com/SDWebImage/SDWebImage)
+- [x] Version **5.0**
+- [x] Asynchronous image downloader with cache support to handle URL images
+
+### SCLAlertView
+
+- [x] [SCLAlertView](https://github.com/vikmeup/SCLAlertView-Swift)
+- [x] Version **0.8**
+- [x] Beautiful animated Alert View. Written in Swift used to show Error and Info Alerts
+
+### PKHUD
+
+- [x] [PKHUD](https://github.com/vikmeup/SCLAlertView-Swift)
+- [x] Version **5.3**
+- [x] A Swift based reimplementation of the Apple HUD used for progress
+
+### Favorites
+
+Listing favorite series liked on Series Listing sort alphabetically
+
+### People
+
+Search and Listing people starring cast from shows
+
+
 
 ## Installation
 
