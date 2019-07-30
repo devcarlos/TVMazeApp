@@ -70,16 +70,6 @@ In order to implement the **TVMazeApp** project there is some libraries used for
 - [x] Version **5.3**
 - [x] A Swift based reimplementation of the Apple HUD used for progress
 
-### Favorites
-
-Listing favorite series liked on Series Listing sort alphabetically
-
-### People
-
-Search and Listing people starring cast from shows
-
-
-
 ## Installation
 
 **TVMazeApp** is available through [GitHub](https://github.com/devcarlos/TVMazeApp.git). To install
